@@ -5,85 +5,113 @@ For I = 0 to objArgs.Count -1
 a = a & " " & objArgs(I)	
 Next
 
-'inputbox "Valeur passer","valeur :",a
-
 Set WshShell = CreateObject("WScript.Shell")
 
-If a = " augmenter le son" then 
+If a = " augmente le son" then 
 WshShell.SendKeys "{" & chr(175) & " 10}"
-Elseif a =  " augmenter le volume" then 
+Elseif a =  " augmente le volume" then 
 WshShell.SendKeys "{" & chr(175) & " 10}"
-Elseif a = " monte le sons" then 
-WshShell.SendKeys "{" & chr(175) & " 10}"
-Elseif a = " monte le sons au max" then 
-WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " monte le sons au maximum" then 
-WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " monte le volume au max" then 
-WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " monte le volume au maximum" then 
-WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " volume max" then 
-WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " son au max" then 
-WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " augmente le son au maximum" then 
-WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " augmente le son" then 
-WshShell.SendKeys "{" & chr(175) & " 10}"
+Elseif a = " monte le son" then WshShell.SendKeys "{" & chr(175) & " 10}"
+Elseif a = " monte le son au max" then WshShell.SendKeys "{" & chr(175) & " 50}"
+Elseif a = " monte le son au maximum" then WshShell.SendKeys "{" & chr(175) & " 50}"
+Elseif a = " monte le volume au max" then WshShell.SendKeys "{" & chr(175) & " 50}"
+Elseif a = " monte le volume au maximum" then WshShell.SendKeys "{" & chr(175) & " 50}"
+Elseif a = " volume max" then WshShell.SendKeys "{" & chr(175) & " 50}"
+Elseif a = " son au max" then WshShell.SendKeys "{" & chr(175) & " 50}"
+Elseif a = " augmente le son au maximum" then WshShell.SendKeys "{" & chr(175) & " 50}"
+Elseif a = " baisse le son" then WshShell.SendKeys "{" & chr(174) & " 10}"
+Elseif a = " descend le son" then WshShell.SendKeys "{" & chr(174) & " 10}"
+Elseif a = " descend le volume" then WshShell.SendKeys "{" & chr(174) & " 10}"
+Elseif a = " descend le son au max" then WshShell.SendKeys "{" & chr(174) & " 50}"
+Elseif a = " baisse le son au max" then WshShell.SendKeys "{" & chr(174) & " 50}"
+Elseif a = " baisse le volume" then WshShell.SendKeys "{" & chr(174) & " 10}"
+Elseif a = " baisse le volume au max" then WshShell.SendKeys "{" & chr(174) & " 50}"
+Elseif a = " baisse le son au maximum" then WshShell.SendKeys "{" & chr(174) & " 50}"
+Elseif a = " baisse le volume au maximum" then WshShell.SendKeys "{" & chr(174) & " 50}"
+Elseif a = " mute le volume" then WshShell.SendKeys chr(173)
+Elseif a = " mute le son" then WshShell.SendKeys chr(173)
+Elseif a = " muet" then WshShell.SendKeys chr(173)
+Elseif a = " le son a 0" then WshShell.SendKeys chr(173)
+Elseif a = " coupe le son" then WshShell.SendKeys chr(173)
+Elseif a = " coupe le volume" then WshShell.SendKeys chr(173)
+Elseif a = " coupe l'audio" then WshShell.SendKeys chr(173)
+Elseif a = " remet le volume" then WshShell.SendKeys chr(173)
+Elseif a = " remet le son" then WshShell.SendKeys chr(173)
 
-'*DÈcodeur Orange* 
+Elseif a = " lance chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " ouvre chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " d√©marre chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " ex√©cute chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " lance google chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " ouvre google chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " d√©marre google chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " ex√©cute google chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " lance google" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " ouvre google" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " d√©marre google" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " ex√©cute chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " lorsque Rome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Elseif a = " fait pause" then WshShell.SendKeys " "
+Elseif a = " met pause" then WshShell.SendKeys " "
+Elseif a = " fais une pause" then WshShell.SendKeys " "
+Elseif a = " met en pause" then WshShell.SendKeys " "
+Elseif a = " mais en pause" then WshShell.SendKeys " "
+Elseif a = " fait pause" then WshShell.SendKeys " "
+Elseif a = " fait stop" then WshShell.SendKeys " "
+Elseif a = " stop" then WshShell.SendKeys " "
+Elseif a = " pause" then WshShell.SendKeys " "
+Elseif a = " relance" then WshShell.SendKeys " "
+Elseif a = " enl√®ve la pause" then WshShell.SendKeys " "
+Elseif a = " met une pause" then WshShell.SendKeys " "
+Elseif a = " lance" then WshShell.SendKeys " "
+Elseif a = " lecture" then WshShell.SendKeys " "
+Elseif a = " lance lecture" then WshShell.SendKeys " "
+Elseif a = " lecture la lecture" then WshShell.SendKeys " "
+Elseif a = " √©teint le" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+Elseif a = " arr√™te le" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+Elseif a = " √©teint le pc" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+Elseif a = " √©teint l'ordinateur" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+Elseif a = " arr√™te le syst√®me" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+Elseif a = " √©teint le syst√®me" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+
+'*D√©codeur Orange* 
 
 'Configuration requise : https://blubsy-news.blogspot.fr/2017/10/domotique-commander-la-livebox-avec-la.html
-Elseif a = " allume le dÈcodeur" then
+Elseif a = " allume le d√©codeur" then
 Call onoffdecodeur ()
-Elseif a = " allumer le dÈcodeur" then
+Elseif a = " allumer le d√©codeur" then
 Call onoffdecodeur ()
-Elseif a = " dÈmarre le dÈcodeur" then
+Elseif a = " d√©marre le d√©codeur" then
 Call onoffdecodeur ()
-Elseif a = " allume le dÈcodeur tv" then
+Elseif a = " allume le d√©codeur tv" then
 Call onoffdecodeur ()
 Elseif a = " allume la livebox" then
 Call onoffdecodeur ()
-Elseif a = " lance le dÈcodeur" then
+Elseif a = " lance le d√©codeur" then
 Call onoffdecodeur ()
-Elseif a = " Èteint le dÈcodeur" then
+Elseif a = " √©teint le d√©codeur" then
 Call onoffdecodeur ()
-Elseif a = " Èteint la livebox" then
+Elseif a = " √©teint la livebox" then
 Call onoffdecodeur ()
 Elseif a = " mute le decodeur" then
 Call mutedecodeur ()
-Elseif a = " met en muet le dÈcodeur" then
+Elseif a = " met en muet le d√©codeur" then
 Call mutedecodeur ()
-Elseif a = " coupe le son du dÈcodeur" then
+Elseif a = " coupe le son du d√©codeur" then
 Call mutedecodeur ()
-Elseif a = " remet le son du dÈcodeur" then
+Elseif a = " remet le son du d√©codeur" then
 Call mutedecodeur ()
-Elseif a = " augmente le son du dÈcodeur" then
+Elseif a = " augmente le son du d√©codeur" then
 Call VolumeUpdecodeur ()
-Elseif a = " augmente le volume du dÈcodeur" then
+Elseif a = " augmente le volume du d√©codeur" then
 Call VolumeUpdecodeur ()
-Elseif a = " met le son du dÈcodeur plus fort" then
+Elseif a = " met le son du d√©codeur plus fort" then
 Call VolumeUpdecodeur ()
-Elseif a = " monte le son du dÈcodeur" then
+Elseif a = " monte le son du d√©codeur" then
 Call VolumeUpdecodeur ()
-Elseif a = " monte le volume du dÈcodeur" then
+Elseif a = " monte le volume du d√©codeur" then
 Call VolumeUpdecodeur ()
-
-
-
-Elseif a = " baisse le volume du dÈcodeur" then
-Call VolumeDowndecodeur ()
-Elseif a = " met le son du dÈcodeur moins fort" then
-Call VolumeDowndecodeur ()
-Elseif a = " baisse le son du dÈcodeur" then
-Call VolumeDowndecodeur ()
-Elseif a = " baisse le volume du dÈcodeur" then
-Call VolumeDowndecodeur ()
-
 End if 
-
-
 
 
 sub onoffdecodeur ()
