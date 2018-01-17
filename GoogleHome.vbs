@@ -1,5 +1,3 @@
-on error resume next
-
 Set objArgs = WScript.Arguments
 For I = 0 to objArgs.Count -1
 a = a & " " & objArgs(I)	
