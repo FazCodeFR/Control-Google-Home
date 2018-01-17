@@ -37,7 +37,6 @@ Elseif a = " coupe le volume" then WshShell.SendKeys chr(173)
 Elseif a = " coupe l'audio" then WshShell.SendKeys chr(173)
 Elseif a = " remet le volume" then WshShell.SendKeys chr(173)
 Elseif a = " remet le son" then WshShell.SendKeys chr(173)
-
 Elseif a = " lance chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
 Elseif a = " ouvre chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
 Elseif a = " démarre chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
@@ -73,6 +72,16 @@ Elseif a = " éteint le pc" then CreateObject("Wscript.Shell").Run "CMD /C " & "
 Elseif a = " éteint l'ordinateur" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
 Elseif a = " arrête le système" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
 Elseif a = " éteint le système" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+Elseif a = " verrouille le" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Elseif a = " verrouille la session" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Elseif a = " verrouille le pc" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Elseif a = " verrouille l'ordinateur" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Elseif a = " le verrouiller" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Elseif a = " met en veille" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Elseif a = " mettre en veille" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Elseif a = " met le en veille" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Elseif a = " veille" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Elseif a = " verrouillage" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
 
 '*Décodeur Orange* 
 
@@ -178,7 +187,3 @@ For Each objProcess in colProcessList
     objProcess.Terminate()
 Next
 End sub
-
-
-
-'inputbox "Valeur passer","valeur :",a
