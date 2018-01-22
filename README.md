@@ -1,7 +1,7 @@
 # Bienvenue, Control-Google-Home
 Contrôle de son ordinateur Windows avec Google Home. Requis : https://aymkdn.github.io/assistant-plugins/?plugin=launch
 
-Mettre GoogleHome.vbs dans le dossier : C:\GoogleHome\Commande
+Mettre GoogleHome.vbs dans le dossier : C:\GoogleHome\
 
 Télécharger Start hide.vbs et le mettre dans shell:startup 
 (windows + R et entrer shell:startupet y mettre le fichier)
