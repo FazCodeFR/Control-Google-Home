@@ -1,187 +1,163 @@
+'Ok Google, sur le pc XXX
+'Ok Google, sur l'ordinateur XXX
+' Applet IFTTT : https://ifttt.com/applets/jSNrZ4vJ-controle-de-l-ordinateur-avec-google-assitant
+' Fichier GoogleHome.vbs a mettre dans : C:\GoogleHome
+
 Set objArgs = WScript.Arguments
 For I = 0 to objArgs.Count -1
 a = a & " " & objArgs(I)	
 Next
 
+'inputbox a,a,a
+
 Set WshShell = CreateObject("WScript.Shell")
 
-If a = " augmente le son" then 
+
+Select Case a
+Case " augmente le son"
 WshShell.SendKeys "{" & chr(175) & " 10}"
-Elseif a =  " augmente le volume" then 
+Case " augmente le volume"
 WshShell.SendKeys "{" & chr(175) & " 10}"
-Elseif a = " monte le son" then WshShell.SendKeys "{" & chr(175) & " 10}"
-Elseif a = " monte le son au max" then WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " monte le son au maximum" then WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " monte le volume au max" then WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " monte le volume au maximum" then WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " volume max" then WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " son au max" then WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " augmente le son au maximum" then WshShell.SendKeys "{" & chr(175) & " 50}"
-Elseif a = " baisse le son" then WshShell.SendKeys "{" & chr(174) & " 10}"
-Elseif a = " descend le son" then WshShell.SendKeys "{" & chr(174) & " 10}"
-Elseif a = " descend le volume" then WshShell.SendKeys "{" & chr(174) & " 10}"
-Elseif a = " descend le son au max" then WshShell.SendKeys "{" & chr(174) & " 50}"
-Elseif a = " baisse le son au max" then WshShell.SendKeys "{" & chr(174) & " 50}"
-Elseif a = " baisse le volume" then WshShell.SendKeys "{" & chr(174) & " 10}"
-Elseif a = " baisse le volume au max" then WshShell.SendKeys "{" & chr(174) & " 50}"
-Elseif a = " baisse le son au maximum" then WshShell.SendKeys "{" & chr(174) & " 50}"
-Elseif a = " baisse le volume au maximum" then WshShell.SendKeys "{" & chr(174) & " 50}"
-Elseif a = " mute le volume" then WshShell.SendKeys chr(173)
-Elseif a = " mute le son" then WshShell.SendKeys chr(173)
-Elseif a = " muet" then WshShell.SendKeys chr(173)
-Elseif a = " le son a 0" then WshShell.SendKeys chr(173)
-Elseif a = " coupe le son" then WshShell.SendKeys chr(173)
-Elseif a = " coupe le volume" then WshShell.SendKeys chr(173)
-Elseif a = " coupe l'audio" then WshShell.SendKeys chr(173)
-Elseif a = " remet le volume" then WshShell.SendKeys chr(173)
-Elseif a = " remet le son" then WshShell.SendKeys chr(173)
-Elseif a = " lance chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " ouvre chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " démarre chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " exécute chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " lance google chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " ouvre google chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " démarre google chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " exécute google chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " lance google" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " ouvre google" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " démarre google" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " exécute chrome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " lorsque Rome" then WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
-Elseif a = " fait pause" then WshShell.SendKeys " "
-Elseif a = " met pause" then WshShell.SendKeys " "
-Elseif a = " fais une pause" then WshShell.SendKeys " "
-Elseif a = " met en pause" then WshShell.SendKeys " "
-Elseif a = " mais en pause" then WshShell.SendKeys " "
-Elseif a = " fait pause" then WshShell.SendKeys " "
-Elseif a = " fait stop" then WshShell.SendKeys " "
-Elseif a = " stop" then WshShell.SendKeys " "
-Elseif a = " pause" then WshShell.SendKeys " "
-Elseif a = " relance" then WshShell.SendKeys " "
-Elseif a = " enlève la pause" then WshShell.SendKeys " "
-Elseif a = " met une pause" then WshShell.SendKeys " "
-Elseif a = " lance" then WshShell.SendKeys " "
-Elseif a = " lecture" then WshShell.SendKeys " "
-Elseif a = " lance lecture" then WshShell.SendKeys " "
-Elseif a = " lance la lecture" then WshShell.SendKeys " "
-Elseif a = " éteint le" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
-Elseif a = " arrête le" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
-Elseif a = " éteint le pc" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
-Elseif a = " éteint l'ordinateur" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
-Elseif a = " arrête le système" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
-Elseif a = " éteint le système" then CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
-Elseif a = " verrouille le" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
-Elseif a = " verrouille la session" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
-Elseif a = " verrouille le pc" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
-Elseif a = " verrouille l'ordinateur" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
-Elseif a = " le verrouiller" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
-Elseif a = " met en veille" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
-Elseif a = " mettre en veille" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
-Elseif a = " met le en veille" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
-Elseif a = " veille" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
-Elseif a = " verrouillage" then WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
-
-'*Décodeur Orange* 
-
-'Configuration requise : https://blubsy-news.blogspot.fr/2017/10/domotique-commander-la-livebox-avec-la.html
-Elseif a = " allume le décodeur" then
-Call onoffdecodeur ()
-Elseif a = " allumer le décodeur" then
-Call onoffdecodeur ()
-Elseif a = " démarre le décodeur" then
-Call onoffdecodeur ()
-Elseif a = " allume le décodeur tv" then
-Call onoffdecodeur ()
-Elseif a = " allume la livebox" then
-Call onoffdecodeur ()
-Elseif a = " lance le décodeur" then
-Call onoffdecodeur ()
-Elseif a = " éteint le décodeur" then
-Call onoffdecodeur ()
-Elseif a = " éteint la livebox" then
-Call onoffdecodeur ()
-Elseif a = " mute le decodeur" then
-Call mutedecodeur ()
-Elseif a = " met en muet le décodeur" then
-Call mutedecodeur ()
-Elseif a = " coupe le son du décodeur" then
-Call mutedecodeur ()
-Elseif a = " remet le son du décodeur" then
-Call mutedecodeur ()
-Elseif a = " augmente le son du décodeur" then
-Call VolumeUpdecodeur ()
-Elseif a = " augmente le volume du décodeur" then
-Call VolumeUpdecodeur ()
-Elseif a = " met le son du décodeur plus fort" then
-Call VolumeUpdecodeur ()
-Elseif a = " monte le son du décodeur" then
-Call VolumeUpdecodeur ()
-Elseif a = " monte le volume du décodeur" then
-Call VolumeUpdecodeur ()
-End if 
-
-
-sub onoffdecodeur ()
-Dim IE
-Set IE = Wscript.CreateObject("InternetExplorer.Application")
-IE.Visible = 0
-IE.navigate "http://192.168.1.10:8080/remoteControl/cmd?operation=01&key=116&mode=0"
-WScript.Sleep 3000
-strComputer = "."
-Set objWMIService = GetObject("winmgmts:" _
-    & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
-Set colProcessList = objWMIService.ExecQuery _
-    ("Select * from Win32_Process Where Name = 'iexplore.exe'")
-For Each objProcess in colProcessList
-    objProcess.Terminate()
-Next
-End sub
-
-sub mutedecodeur ()
-Dim IE
-Set IE = Wscript.CreateObject("InternetExplorer.Application")
-IE.Visible = 0
-IE.navigate "http://192.168.1.10:8080/remoteControl/cmd?operation=01&key=113&mode=0"
-WScript.Sleep 3000
-strComputer = "."
-Set objWMIService = GetObject("winmgmts:" _
-    & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
-Set colProcessList = objWMIService.ExecQuery _
-    ("Select * from Win32_Process Where Name = 'iexplore.exe'")
-For Each objProcess in colProcessList
-    objProcess.Terminate()
-Next
-End sub
-
-sub VolumeUpdecodeur ()
-Dim IE
-Set IE = Wscript.CreateObject("InternetExplorer.Application")
-IE.Visible = 0
-IE.navigate "http://192.168.1.10:8080/remoteControl/cmd?operation=01&key=115&mode=0"
-WScript.Sleep 3000
-strComputer = "."
-Set objWMIService = GetObject("winmgmts:" _
-    & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
-Set colProcessList = objWMIService.ExecQuery _
-    ("Select * from Win32_Process Where Name = 'iexplore.exe'")
-For Each objProcess in colProcessList
-    objProcess.Terminate()
-Next
-End sub
-
-
-sub VolumeDowndecodeur ()
-Dim IE
-Set IE = Wscript.CreateObject("InternetExplorer.Application")
-IE.Visible = 0
-IE.navigate "http://192.168.1.10:8080/remoteControl/cmd?operation=01&key=114&mode=0"
-WScript.Sleep 3000
-strComputer = "."
-Set objWMIService = GetObject("winmgmts:" _
-    & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
-Set colProcessList = objWMIService.ExecQuery _
-    ("Select * from Win32_Process Where Name = 'iexplore.exe'")
-For Each objProcess in colProcessList
-    objProcess.Terminate()
-Next
-End sub
+Case " monte le son"
+WshShell.SendKeys "{" & chr(175) & " 10}"
+Case " monte le son au max"
+WshShell.SendKeys "{" & chr(175) & " 50}"
+Case " monte le son au maximum"
+WshShell.SendKeys "{" & chr(175) & " 50}"
+Case " monte le volume au maximum"
+WshShell.SendKeys "{" & chr(175) & " 50}"
+Case " volume max"
+WshShell.SendKeys "{" & chr(175) & " 50}"
+Case " son au max"
+WshShell.SendKeys "{" & chr(175) & " 50}"
+Case " augmente le son au maximum"
+WshShell.SendKeys "{" & chr(175) & " 50}"
+Case " baisse le son"
+WshShell.SendKeys "{" & chr(174) & " 10}"
+Case " descend le son"
+WshShell.SendKeys "{" & chr(174) & " 10}"
+Case " descend le volume"
+WshShell.SendKeys "{" & chr(174) & " 10}"
+Case " descend le son au max"
+WshShell.SendKeys "{" & chr(174) & " 50}"
+Case " baisse le son au max"
+WshShell.SendKeys "{" & chr(174) & " 50}"
+Case " baisse le volume"
+WshShell.SendKeys "{" & chr(174) & " 10}"
+Case " baisse le volume au max"
+WshShell.SendKeys "{" & chr(174) & " 50}"
+Case " baisse le son au maximum"
+WshShell.SendKeys "{" & chr(174) & " 50}"
+Case " baisse le volume au maximum"
+WshShell.SendKeys "{" & chr(174) & " 50}"
+Case " mute le volume"
+WshShell.SendKeys chr(173)
+Case " mute le son"
+WshShell.SendKeys chr(173)
+Case " muet"
+WshShell.SendKeys chr(173)
+Case " le son a 0"
+WshShell.SendKeys chr(173)
+Case " coupe le son"
+WshShell.SendKeys chr(173)
+Case " coupe le volume"
+WshShell.SendKeys chr(173)
+Case " coupe l'audio"
+WshShell.SendKeys chr(173)
+Case " remet le volume"
+WshShell.SendKeys chr(173)
+Case " remet le son"
+WshShell.SendKeys chr(173)
+Case " lance chrome"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " ouvre chrome"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " d�marre chrome"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " ex�cute chrome"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " lance google chrome"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " ouvre google chrome"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " d�marre google chrome"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " ex�cute google chrome"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " lance google"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " ouvre google"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " d�marre google"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " ex�cute chrome"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " lorsque Rome"
+WshShell.Run """C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"""
+Case " fait pause"
+WshShell.SendKeys " "
+Case " met pause"
+WshShell.SendKeys " "
+Case " fais une pause"
+WshShell.SendKeys " "
+Case " met en pause"
+WshShell.SendKeys " "
+Case " mais en pause"
+WshShell.SendKeys " "
+Case " fait pause"
+WshShell.SendKeys " "
+Case " fait stop"
+WshShell.SendKeys " "
+Case " stop"
+WshShell.SendKeys " "
+Case " pause"
+WshShell.SendKeys " "
+Case " relance"
+WshShell.SendKeys " "
+Case " enl�ve la pause"
+WshShell.SendKeys " "
+Case " met une pause"
+WshShell.SendKeys " "
+Case " lance"
+WshShell.SendKeys " "
+Case " lecture"
+WshShell.SendKeys " "
+Case " lance lecture"
+WshShell.SendKeys " "
+Case " lance la lecture"
+WshShell.SendKeys " "
+Case " �teint le"
+CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+Case " arr�te le"
+CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+Case " �teint le pc"
+CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+Case " �teint l'ordinateur"
+CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+Case " arr�te le syst�me"
+CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+Case " �teint le syst�me"
+CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f"
+Case " verrouille le"
+WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Case " verrouille la session"
+WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Case " verrouille le pc"
+WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Case " verrouille l'ordinateur"
+WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Case " le verrouiller"
+WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Case " met en veille"
+WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Case " mettre en veille"
+WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Case " met le en veille"
+WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Case " veille"
+WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Case " verrouillage"
+WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
+Case Else
+'Inputbox "La valeur n'existe pas","Erreur : valeur n'existe pas",a
+End Select
