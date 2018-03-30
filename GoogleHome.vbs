@@ -29,7 +29,7 @@ user = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
 	WshShell.RegWrite "HKCU\Software\GoogleHome\MUSIC",objFolder.self.path,"REG_SZ"
 	MsgBox "Je conseil de tester la commande <musique> pour vérifier que tout fonctionne bien et que le lecteur media est compatible"
 End if
-If MsgBox ("Voulez vous configuez le chemin d'accès pour les videos ? " &vbcr & vbcr & "Sélectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers. Dossier par défaut" & vbcr & "Ok google sur le pc met de les vidéos" & vbcr & vbcr & "Si le dossier n'est pas configué, cela marchera quand même mais affichera un choix de dossier vidéos a chaque demande de musique" & vbcr & vbcr & "Oui = Configuer",vbyesno,"Configurez le dossier Viéo") = vbYes Then
+If MsgBox ("Voulez vous configuez le chemin d'accès pour les vidéos ? " &vbcr & vbcr & "Sélectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers. Dossier par défaut" & vbcr & "Ok google sur le pc met de les vidéos" & vbcr & vbcr & "Si le dossier n'est pas configué, cela marchera quand même mais affichera un choix de dossier vidéos a chaque demande de musique" & vbcr & vbcr & "Oui = Configuer",vbyesno,"Configurez le dossier Vidéo") = vbYes Then
 user = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
 	Message = "Veuillez sélectionner un dossier afin d'y rechercher des videos dans ses sous-dossiers et ses sous-dossiers."
 	Set objShell = CreateObject("Shell.Application")
@@ -195,7 +195,8 @@ if NewVersion > VersionActu Then
 	 WshShell.RegDelete "HKCU\Software\GoogleHome\Ok"
 	 WshShell.RegDelete "HKCU\Software\GoogleHome\MAJ"
      WshShell.Run "cmd /c chcp 28591 > nul & taskkill /F /IM wscript.exe & move C:\GoogleHome\GoogleHomeNew.txt C:\GoogleHome\GoogleHome.vbs & start C:\GoogleHome\GoogleHome.vbs",0
-	 Else
+	 WScript.Sleep 8000
+	Else
 	 If CheckMAJUser = true then MsgBox "Pas de nouvelle mise a jours a installer" & vbNewLine & "Vous êtes bien dans la derniere version disponible" & vbNewLine & vbNewLine & vbNewLine & "Votre version : " & VersionActu & vbNewLine & "Derniere version : " & NewVersion
 	 CheckMAJUser = false
 End if
