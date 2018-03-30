@@ -14,6 +14,7 @@ checkregistre = WshShell.RegRead ("HKCU\Software\GoogleHome\Ok")
 If err.Number<>0 or IsNull(checkregistre) Then
 WshShell.RegWrite "HKCU\Software\GoogleHome\MAJ",MAJ,"REG_SZ"
 WshShell.RegWrite "HKCU\Software\GoogleHome\Ok","1","REG_SZ"
+Call MAJCheck (CheckMAJUser)
 MsgBox "Bienvenue dans mon script, il semblerait que vous lancer mon script pour la première fois ou que vous avez effectuer une mise à jour de celui-ci, pour faire fonctionner mon script dite : Ok Google, sur le pc xxx" & vbcr & "Par exemple Ok Google sur le pc test (pour tester la communication entre la Google homme est le PC)" & vbcr & " Dite des phrases simples et courtes" & vbcr & "Exercuté le script depuis l'ordinateur pour en savoir plus" & vbcr & vbcr & "Version Actuelle : " & MAJ ,vbInformation+vbOKOnly,"Control Google Home.vbs"
 
 If MsgBox ("Voulez vous configuez le chemin d'accès pour la musiques ? " &vbcr & vbcr & "Sélectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers. Dossier par défaut" & vbcr & "Ok google sur le pc met de la musique" & vbcr & vbcr & "Si le dossier n'est pas configué, cela marchera quand même mais affichera un choix de dossier musique a chaque demande de musique" & vbcr & vbcr & "Oui = Configuer",vbyesno,"Configurez le dossier Musique") = vbYes Then
@@ -191,6 +192,8 @@ if NewVersion > VersionActu Then
      f.write(Telecharger)
      f.close
 	 CheckMAJUser = false
+	 WshShell.RegDelete "HKCU\Software\GoogleHome\Ok"
+	 WshShell.RegDelete "HKCU\Software\GoogleHome\MAJ"
      WshShell.Run "cmd /c chcp 28591 > nul & taskkill /F /IM wscript.exe & move C:\GoogleHome\GoogleHomeNew.txt C:\GoogleHome\GoogleHome.vbs & start C:\GoogleHome\GoogleHome.vbs",0
 	 Else
 	 If CheckMAJUser = true then MsgBox "Pas de nouvelle mise a jours a installer" & vbNewLine & "Vous êtes bien dans la derniere version disponible" & vbNewLine & vbNewLine & vbNewLine & "Votre version : " & VersionActu & vbNewLine & "Derniere version : " & NewVersion
@@ -280,4 +283,3 @@ WshShell.RegDelete "HKCU\Software\GoogleHome\VIDEO"
 WshShell.RegDelete "HKCU\Software\GoogleHome\MAJ"
 WshShell.Run "C:\GoogleHome\GoogleHome.vbs"
 End sub
-
