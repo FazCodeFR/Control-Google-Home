@@ -29,7 +29,7 @@ Redémarrer votre ordinateur.
 4)
 
 
-IFTTT -> Contrôler son pc : https://ifttt.com/applets/jSNrZ4vJ-controle-de-l-ordinateur-avec-google-assitant
+IFTTT -> Contrôler son pc : https://ifttt.com/applets/DLw4BdPt-controle-pc-avec-google-home
 
 Contrôler son décodeur : https://ifttt.com/applets/N8a5s4BE-controle-du-decodeur-orange-avec-google-assitant
 
