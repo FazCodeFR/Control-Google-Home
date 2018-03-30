@@ -14,36 +14,36 @@ checkregistre = WshShell.RegRead ("HKCU\Software\GoogleHome\Ok")
 If err.Number<>0 or IsNull(checkregistre) Then
 WshShell.RegWrite "HKCU\Software\GoogleHome\MAJ",MAJ,"REG_SZ"
 WshShell.RegWrite "HKCU\Software\GoogleHome\Ok","1","REG_SZ"
-MsgBox "Bienvenue dans mon script, il semblerait que vous lancer mon script pour la première fois ou que vous avez effectuer une mise à jour de celui-ci, pour faire fonctionner mon script dite : Ok Google, sur le pc xxx" & vbcr & "Par exemple Ok Google sur le pc test (pour tester la communication entre la Google homme est le PC)" & vbcr & " Dite des phrases simples et courtes" & vbcr & "Exercuté le script depuis l'ordinateur pour en savoir plus" & vbcr & vbcr & "Version Actuelle : " & MAJ ,vbInformation+vbOKOnly,"Control Google Home.vbs"
+MsgBox "Bienvenue dans mon script, il semblerait que vous lancer mon script pour la premiÃ¨re fois ou que vous avez effectuer une mise Ã  jour de celui-ci, pour faire fonctionner mon script dite : Ok Google, sur le pc xxx" & vbcr & "Par exemple Ok Google sur le pc test (pour tester la communication entre la Google homme est le PC)" & vbcr & " Dite des phrases simples et courtes" & vbcr & "ExercutÃ© le script depuis l'ordinateur pour en savoir plus" & vbcr & vbcr & "Version Actuelle : " & MAJ ,vbInformation+vbOKOnly,"Control Google Home.vbs"
 
-If MsgBox ("Voulez vous configuez le chemin d'accès pour la musiques ? " &vbcr & vbcr & "Sélectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers. Dossier par défaut" & vbcr & "Ok google sur le pc met de la musique" & vbcr & vbcr & "Si le dossier n'est pas configué, cela marchera quand même mais affichera un choix de dossier musique a chaque demande de musique" & vbcr & vbcr & "Oui = Configuer",vbyesno,"Configurez le dossier Musique") = vbYes Then
+If MsgBox ("Voulez vous configuez le chemin d'accÃ¨s pour la musiques ? " &vbcr & vbcr & "SÃ©lectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers. Dossier par dÃ©faut" & vbcr & "Ok google sur le pc met de la musique" & vbcr & vbcr & "Si le dossier n'est pas configuÃ©, cela marchera quand mÃªme mais affichera un choix de dossier musique a chaque demande de musique" & vbcr & vbcr & "Oui = Configuer",vbyesno,"Configurez le dossier Musique") = vbYes Then
 Dim objShell,objFolder,Message, user
 user = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
-	Message = "Veuillez sélectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers."
+	Message = "Veuillez sÃ©lectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers."
 	Set objShell = CreateObject("Shell.Application")
 	Set objFolder = objShell.BrowseForFolder(0,Message,1,user)
 	If objFolder Is Nothing Then
 		Wscript.Quit
 	End If
 	WshShell.RegWrite "HKCU\Software\GoogleHome\MUSIC",objFolder.self.path,"REG_SZ"
-	MsgBox "Je conseil de tester la commande <musique> pour vérifier que tout fonctionne bien et que le lecteur media est compatible"
+	MsgBox "Je conseil de tester la commande <musique> pour vÃ©rifier que tout fonctionne bien et que le lecteur media est compatible"
 End if
-If MsgBox ("Voulez vous configuez le chemin d'accès pour les videos ? " &vbcr & vbcr & "Sélectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers. Dossier par défaut" & vbcr & "Ok google sur le pc met de les vidéos" & vbcr & vbcr & "Si le dossier n'est pas configué, cela marchera quand même mais affichera un choix de dossier vidéos a chaque demande de musique" & vbcr & vbcr & "Oui = Configuer",vbyesno,"Configurez le dossier Viéo") = vbYes Then
+If MsgBox ("Voulez vous configuez le chemin d'accÃ¨s pour les videos ? " &vbcr & vbcr & "SÃ©lectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers. Dossier par dÃ©faut" & vbcr & "Ok google sur le pc met de les vidÃ©os" & vbcr & vbcr & "Si le dossier n'est pas configuÃ©, cela marchera quand mÃªme mais affichera un choix de dossier vidÃ©os a chaque demande de musique" & vbcr & vbcr & "Oui = Configuer",vbyesno,"Configurez le dossier ViÃ©o") = vbYes Then
 user = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
-	Message = "Veuillez sélectionner un dossier afin d'y rechercher des videos dans ses sous-dossiers et ses sous-dossiers."
+	Message = "Veuillez sÃ©lectionner un dossier afin d'y rechercher des videos dans ses sous-dossiers et ses sous-dossiers."
 	Set objShell = CreateObject("Shell.Application")
 	Set objFolder = objShell.BrowseForFolder(0,Message,1,user)
 	If objFolder Is Nothing Then
 		Wscript.Quit
 	End If
 	WshShell.RegWrite "HKCU\Software\GoogleHome\VIDEO",objFolder.self.path,"REG_SZ"
-	MsgBox "Je conseil de tester la commande <vidéo> pour vérifier que tout fonctionne bien et que le lecteur media est compatible"
+	MsgBox "Je conseil de tester la commande <vidÃ©o> pour vÃ©rifier que tout fonctionne bien et que le lecteur media est compatible"
 End if
 End if 
 
 Set objArgs = WScript.Arguments
 For I = 0 to objArgs.Count -1
-if objArgs(I) = "écris" or objArgs(I) = "écrit" Then 
+if objArgs(I) = "Ã©cris" or objArgs(I) = "Ã©crit" Then 
 ecrit = true
 Else
 a = a & " " & objArgs(I)
@@ -60,7 +60,7 @@ End if
 If a = "" then
 Call MAJCheck (CheckMAJUser)
 
-rep = InputBox ("Bienvenue dans mon script, pour faire fonctionner mon script dite : Ok Google, sur le pc xxx" & vbcr & "Par exemple Ok Google sur le pc test (pour tester la communication entre la Google homme est le PC)" & vbcr & vbcr & " Dite des phrases simples et courtes" & vbcr & vbcr & vbcr & "1 = Vérifier mise a jours" & vbcr & "2 = Envoyé un messsage au créateur (rapide & sans se logger)" & vbcr & "3 = Réinsalisé la configuration du script." & vbCr & "4 = Crédit" & vbcr & vbcr & "Pour tester des commandes en écrit, il vous suffit de taper une commande si dessous pour savoir si elle est comprise par le logiciel" & vbNewLine & "Version : " &  MAJ,"Control Google Home " & MAJ,"augmente le son")
+rep = InputBox ("Bienvenue dans mon script, pour faire fonctionner mon script dite : Ok Google, sur le pc xxx" & vbcr & "Par exemple Ok Google sur le pc test (pour tester la communication entre la Google homme est le PC)" & vbcr & vbcr & " Dite des phrases simples et courtes" & vbcr & vbcr & vbcr & "1 = VÃ©rifier mise a jours" & vbcr & "2 = EnvoyÃ© un messsage au crÃ©ateur (rapide & sans se logger)" & vbcr & "3 = RÃ©insalisÃ© la configuration du script." & vbCr & "4 = CrÃ©dit" & vbcr & vbcr & "Pour tester des commandes en Ã©crit, il vous suffit de taper une commande si dessous pour savoir si elle est comprise par le logiciel" & vbNewLine & "Version : " &  MAJ,"Control Google Home " & MAJ,"augmente le son")
    If rep = "" then
    ElseIf rep = "1" then 
    CheckMAJUser = true
@@ -70,7 +70,7 @@ rep = InputBox ("Bienvenue dans mon script, pour faire fonctionner mon script di
    ElseIf rep = "3" then 
    Reset ()
    ElseIf rep = "4" then 
-   MsgBox "Crédits : " & vbNewLine & vbNewLine & "HackooFr" & vbNewLine & "Aymkdn",vbInformation+vbOKOnly,"Crédits"
+   MsgBox "CrÃ©dits : " & vbNewLine & vbNewLine & "HackooFr" & vbNewLine & "Aymkdn",vbInformation+vbOKOnly,"CrÃ©dits"
    Else
    a = " " & rep
    End if 
@@ -80,7 +80,7 @@ Set WshShell = CreateObject("WScript.Shell")
 Select Case a
 
 Case " test", "teste"
-MsgBox "La Google Home communique bien avec le pc !" & vbcr & vbcr & "Succès test",vbinformation+vbOKOnly,"Test"
+MsgBox "La Google Home communique bien avec le pc !" & vbcr & vbcr & "SuccÃ¨s test",vbinformation+vbOKOnly,"Test"
 MAJCheck ()
 
 Case " augmente le son"," augmente le volume"," monte le son"
@@ -98,37 +98,37 @@ WshShell.SendKeys "{" & chr(174) & " 50}"
 Case " mute le volume"," mute le son"," muet"," le son a 0"," coupe le son"," coupe le volume"," coupe l'audio"," remet le volume"," remet le son"
 WshShell.SendKeys chr(173)
 
-Case " lance chrome"," affiche chrome"," ouvre chrome"," démarre chrome"," exécute chrome"," lance google chrome"," ouvre google chrome"," démarre google chrome"," exécute google chrome"," lorsque Rome"
+Case " lance chrome"," affiche chrome"," ouvre chrome"," dÃ©marre chrome"," exÃ©cute chrome"," lance google chrome"," ouvre google chrome"," dÃ©marre google chrome"," exÃ©cute google chrome"," lorsque Rome"
 WshShell.Run """chrome"""
 
-Case " lance VLC"," ouvre VLC"," démarre VLC"," exécute VLC"," affiche VLC"
+Case " lance VLC"," ouvre VLC"," dÃ©marre VLC"," exÃ©cute VLC"," affiche VLC"
 WshShell.Run """vlc"""
 
-Case " lance firefox"," ouvre firefox"," démarre firefox"," exécute firefox"," affiche firefox"," firefox"," ouvrir firefox", " démarrer firefox", " lancer firefox"," exécuter firefox"
+Case " lance firefox"," ouvre firefox"," dÃ©marre firefox"," exÃ©cute firefox"," affiche firefox"," firefox"," ouvrir firefox", " dÃ©marrer firefox", " lancer firefox"," exÃ©cuter firefox"
 WshShell.Run """firefox"""
 
-Case " lance CCleaner"," ouvre CCleaner"," démarre CCleaner"," exécute CCleaner"," affiche CCleaner"," CCleaner"," ouvrir CCleaner", " démarrer CCleaner", " lancer CCleaner"," exécuter CCleaner"
+Case " lance CCleaner"," ouvre CCleaner"," dÃ©marre CCleaner"," exÃ©cute CCleaner"," affiche CCleaner"," CCleaner"," ouvrir CCleaner", " dÃ©marrer CCleaner", " lancer CCleaner"," exÃ©cuter CCleaner"
 WshShell.Run """CCleaner"""
 
-Case " lance Dropbox"," ouvre Dropbox"," démarre Dropbox"," exécute Dropbox"," affiche Dropbox"," Dropbox"," ouvrir Dropbox", " démarrer Dropbox", " lancer Dropbox"," exécuter Dropbox"
+Case " lance Dropbox"," ouvre Dropbox"," dÃ©marre Dropbox"," exÃ©cute Dropbox"," affiche Dropbox"," Dropbox"," ouvrir Dropbox", " dÃ©marrer Dropbox", " lancer Dropbox"," exÃ©cuter Dropbox"
 WshShell.Run """Dropbox"""
 
-Case " lance Filezilla"," ouvre Filezilla"," démarre Filezilla"," exécute Filezilla"," affiche Filezilla"," Filezilla"," ouvrir Filezilla", " démarrer Filezilla", " lancer Filezilla"," exécuter Filezilla"
+Case " lance Filezilla"," ouvre Filezilla"," dÃ©marre Filezilla"," exÃ©cute Filezilla"," affiche Filezilla"," Filezilla"," ouvrir Filezilla", " dÃ©marrer Filezilla", " lancer Filezilla"," exÃ©cuter Filezilla"
 WshShell.Run """Filezilla"""
 
-Case " lance Google"," ouvre Google"," démarre Google"," exécute Google"," affiche Google"," Google"," ouvrir Google", " démarrer Google", " lancer Google"," exécuter Google"
+Case " lance Google"," ouvre Google"," dÃ©marre Google"," exÃ©cute Google"," affiche Google"," Google"," ouvrir Google", " dÃ©marrer Google", " lancer Google"," exÃ©cuter Google"
 CreateObject("WScript.Shell").Run "www.google.fr"
 
-Case " lance l ' explorateur"," ouvre l ' explorateur"," démarre l ' explorateur"," exécute l ' explorateur"," affiche l ' explorateur"," explorateur"," ouvrir l ' explorateur", " démarrer l ' explorateur", " lancer l ' explorateur"," exécuter l ' explorateur"," lance explorateur"," ouvre explorateur"," démarre explorateur"," exécute explorateur"," affiche explorateur"," explorateur"," ouvrir explorateur", " démarrer explorateur", " lancer explorateur"," exécuter explorateur"," ouvre explorer"," démarre explorer", " lance explorer"," exécute explorer"
+Case " lance l ' explorateur"," ouvre l ' explorateur"," dÃ©marre l ' explorateur"," exÃ©cute l ' explorateur"," affiche l ' explorateur"," explorateur"," ouvrir l ' explorateur", " dÃ©marrer l ' explorateur", " lancer l ' explorateur"," exÃ©cuter l ' explorateur"," lance explorateur"," ouvre explorateur"," dÃ©marre explorateur"," exÃ©cute explorateur"," affiche explorateur"," explorateur"," ouvrir explorateur", " dÃ©marrer explorateur", " lancer explorateur"," exÃ©cuter explorateur"," ouvre explorer"," dÃ©marre explorer", " lance explorer"," exÃ©cute explorer"
 WshShell.Run """explorer"""
 
-Case " lance Notepad"," ouvre Notepad"," démarre Notepad"," exécute Notepad"," affiche Notepad"," Notepad"," ouvrir Notepad", " démarrer Notepad", " lancer Notepad"," exécuter Notepad"," lance bloc - note"," ouvre bloc - note"," démarre bloc - note"," exécute bloc - notes"," affiche bloc - notes"," bloc - notes"," ouvrir bloc note", " démarrer bloc note", " lancer bloc - notes"," exécuter bloc - notes"
+Case " lance Notepad"," ouvre Notepad"," dÃ©marre Notepad"," exÃ©cute Notepad"," affiche Notepad"," Notepad"," ouvrir Notepad", " dÃ©marrer Notepad", " lancer Notepad"," exÃ©cuter Notepad"," lance bloc - note"," ouvre bloc - note"," dÃ©marre bloc - note"," exÃ©cute bloc - notes"," affiche bloc - notes"," bloc - notes"," ouvrir bloc note", " dÃ©marrer bloc note", " lancer bloc - notes"," exÃ©cuter bloc - notes"
 WshShell.Run """notepad"""
 
-Case " fait pause"," met pause"," fais une pause"," met en pause"," mais en pause"," fait pause"," fait stop"," stop"," pause"," relance"," enlève la pause"," met une pause"," lance"," lecture"," lance lecture"" lance la lecture"
+Case " fait pause"," met pause"," fais une pause"," met en pause"," mais en pause"," fait pause"," fait stop"," stop"," pause"," relance"," enlÃ¨ve la pause"," met une pause"," lance"," lecture"," lance lecture"" lance la lecture"
 WshShell.SendKeys " "
 
-Case " éteint le"," arrête le"," éteint le pc"," éteint l'ordinateur"," arrête le système"," éteint le système"," arrête"
+Case " Ã©teint le"," arrÃªte le"," Ã©teint le pc"," Ã©teint l'ordinateur"," arrÃªte le systÃ¨me"," Ã©teint le systÃ¨me"," arrÃªte"
 CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f",0
 
 Case " verrouille le"," verrouille la session"," verrouille le pc"," le verrouiller"," met en veille"," mettre en veille"," met le en veille"," veille"," verrouillage"," verrouille"," metre en veille"
@@ -140,17 +140,17 @@ WifiPasswordsRecovery ()
 Case " ouvre le lecteur CD"," ouvre le lecteur DVD"," ouvrir lecteur"," ouvrir le lecteur CD"," ouvrir le lecteur DVD"," ouvrir le lecteur"," ouvre le lecteur"," eject le CD"," eject le DVD"," eject CD"," eject DVD"," ejecter DVD"," ejecter CD"," ejecter le DVD"
 LecteurDVD ()
 
-Case " ferme le logiciel"," ferme le logiciel actif"," ferme l'application"," arrête le logiciel"," arrête l'application"
+Case " ferme le logiciel"," ferme le logiciel actif"," ferme l'application"," arrÃªte le logiciel"," arrÃªte l'application"
 WshShell.SendKeys ("%{F4}")
 
-Case " maj"," mise à jour"," vérifier mise à jour"," vérifie mise à jour"," mise à jour script"," vérifier"," mage"
+Case " maj"," mise Ã  jour"," vÃ©rifier mise Ã  jour"," vÃ©rifie mise Ã  jour"," mise Ã  jour script"," vÃ©rifier"," mage"
 CheckMAJUser = true
 MAJCheck (CheckMAJUser)
 
 Case " musique"," met de la musique"," lance de la musique"," mais de la musique"," lance musique"," audio"," met la musique"," met la playlist"," lance la playlist"," met la playlist"
 Musique ()
 
-Case " vidéo"," film"," met vidéo"," film"," mais vidéo"," lance vidéo"," lance film"," met les vidéos"," met la vidéo"," lance la vidéo"," met le film"," met les films"," lance la vidéo"," met la vidéo"
+Case " vidÃ©o"," film"," met vidÃ©o"," film"," mais vidÃ©o"," lance vidÃ©o"," lance film"," met les vidÃ©os"," met la vidÃ©o"," lance la vidÃ©o"," met le film"," met les films"," lance la vidÃ©o"," met la vidÃ©o"
 Video ()
 
 Case Else
@@ -181,7 +181,7 @@ NewVersion = objHTTP.ResponseText
 NewVersion = left(NewVersion, len(NewVersion) - 1) 
 
 if NewVersion > VersionActu Then
-	 If CheckMAJUser = true Then MsgBox "La version : " & NewVersion & " est disponible et va etre installé !" & vbNewLine & vbNewLine & "Notre version actuelle" & VersionActu,vbInformation+vbOKOnly,"Nouvelle version disponible"
+	 If CheckMAJUser = true Then MsgBox "La version : " & NewVersion & " est disponible et va etre installÃ© !" & vbNewLine & vbNewLine & "Notre version actuelle" & VersionActu,vbInformation+vbOKOnly,"Nouvelle version disponible"
      objHTTP.Open "GET", "https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/GoogleHome.vbs", FALSE
      objHTTP.Send
      Telecharger = objHTTP.ResponseText
@@ -193,7 +193,7 @@ if NewVersion > VersionActu Then
 	 CheckMAJUser = false
      WshShell.Run "cmd /c chcp 28591 > nul & taskkill /F /IM wscript.exe & move C:\GoogleHome\GoogleHomeNew.txt C:\GoogleHome\GoogleHome.vbs & start C:\GoogleHome\GoogleHome.vbs",0
 	 Else
-	 If CheckMAJUser = true then MsgBox "Pas de nouvelle mise a jours a installer" & vbNewLine & "Vous êtes bien dans la derniere version disponible" & vbNewLine & vbNewLine & vbNewLine & "Votre version : " & VersionActu & vbNewLine & "Derniere version : " & NewVersion
+	 If CheckMAJUser = true then MsgBox "Pas de nouvelle mise a jours a installer" & vbNewLine & "Vous Ãªtes bien dans la derniere version disponible" & vbNewLine & vbNewLine & vbNewLine & "Votre version : " & VersionActu & vbNewLine & "Derniere version : " & NewVersion
 	 CheckMAJUser = false
 End if
 End sub
@@ -203,7 +203,7 @@ Dim IE
 Set IE = Wscript.CreateObject("InternetExplorer.Application")
 IE.Visible = 0
 IE.navigate "https://aboatdev.sarahah.com/" 
-Texte = Inputbox ("M'envoyer un message : (constructif de préférence)" & vbcr & vbcr & vbcr & "N'oubliez pas de rajouter un moyen de contact si vous voulez être recontacter." & vbcr & vbcr & "-Envoie rapide & anonyme-","Envoyer un message au créateur")
+Texte = Inputbox ("M'envoyer un message : (constructif de prÃ©fÃ©rence)" & vbcr & vbcr & vbcr & "N'oubliez pas de rajouter un moyen de contact si vous voulez Ãªtre recontacter." & vbcr & vbcr & "-Envoie rapide & anonyme-","Envoyer un message au crÃ©ateur")
 If Texte = "" then 
 MsgBox "Message annuler."
 Else
@@ -212,7 +212,7 @@ WScript.Sleep 1000
 IE.Document.All.Item("Text").Value = Texte & vbcr & vbcr & "Version : " & VersionActu
 WScript.Sleep 1000
 IE.Document.All.Item("Send").click
-MsgBox "Message envoyé !",vbInformation+vbOKOnly,"Message Envoyé"
+MsgBox "Message envoyÃ© !",vbInformation+vbOKOnly,"Message EnvoyÃ©"
 IE.Quit
 End If 
 End sub
