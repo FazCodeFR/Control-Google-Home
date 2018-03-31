@@ -283,3 +283,4 @@ WshShell.RegDelete "HKCU\Software\GoogleHome\VIDEO"
 WshShell.RegDelete "HKCU\Software\GoogleHome\MAJ"
 WshShell.Run "C:\GoogleHome\GoogleHome.vbs"
 End sub
+
