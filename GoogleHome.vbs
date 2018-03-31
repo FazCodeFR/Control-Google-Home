@@ -12,9 +12,9 @@ Set WshShell = WScript.CreateObject("WScript.Shell")
 checkregistre = WshShell.RegRead ("HKCU\Software\GoogleHome\Ok")
 
 If err.Number<>0 or IsNull(checkregistre) Then
+Call MAJCheck (CheckMAJUser)
 WshShell.RegWrite "HKCU\Software\GoogleHome\MAJ",MAJ,"REG_SZ"
 WshShell.RegWrite "HKCU\Software\GoogleHome\Ok","1","REG_SZ"
-Call MAJCheck (CheckMAJUser)
 MsgBox "Bienvenue dans mon script, il semblerait que vous lancer mon script pour la première fois ou que vous avez effectuer une mise à jour de celui-ci, pour faire fonctionner mon script dite : Ok Google, sur le pc xxx" & vbcr & "Par exemple Ok Google sur le pc test (pour tester la communication entre la Google homme est le PC)" & vbcr & " Dite des phrases simples et courtes" & vbcr & "Exercuté le script depuis l'ordinateur pour en savoir plus" & vbcr & vbcr & "Version Actuelle : " & MAJ ,vbInformation+vbOKOnly,"Control Google Home.vbs"
 
 If MsgBox ("Voulez vous configuez le chemin d'accès pour la musiques ? " &vbcr & vbcr & "Sélectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers. Dossier par défaut" & vbcr & "Ok google sur le pc met de la musique" & vbcr & vbcr & "Si le dossier n'est pas configué, cela marchera quand même mais affichera un choix de dossier musique a chaque demande de musique" & vbcr & vbcr & "Oui = Configuer",vbyesno,"Configurez le dossier Musique") = vbYes Then
@@ -102,7 +102,7 @@ WshShell.SendKeys chr(173)
 Case " lance chrome"," affiche chrome"," ouvre chrome"," démarre chrome"," exécute chrome"," lance google chrome"," ouvre google chrome"," démarre google chrome"," exécute google chrome"," lorsque Rome"
 WshShell.Run """chrome"""
 
-Case " lance VLC"," ouvre VLC"," démarre VLC"," exécute VLC"," affiche VLC"
+Case " lance VLC"," ouvre VLC"," démarre VLC"," exécute VLC"," affiche VLC"," VLC"," ouvrir VLC", " démarrer VLC", " lancer VLC"," exécuter VLC"
 WshShell.Run """vlc"""
 
 Case " lance firefox"," ouvre firefox"," démarre firefox"," exécute firefox"," affiche firefox"," firefox"," ouvrir firefox", " démarrer firefox", " lancer firefox"," exécuter firefox"
@@ -275,7 +275,6 @@ End sub
 Sub write(a)
 WshShell.SendKeys right(a,len(a)-1)
 End sub
-
 
 Sub Reset ()
 WshShell.RegDelete "HKCU\Software\GoogleHome\Ok"
