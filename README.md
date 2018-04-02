@@ -11,7 +11,7 @@ Si le dossier C:\GoogleHome n'existe pas, le créer
 2)
 
 Une fois l'installation d'assistant-plugins terminé continué ci-dessous,
-Mettre GoogleHome.vbs dans le dossier : C:\GoogleHome
+Mettre le fichier GoogleHome.vbs dans le dossier : C:\GoogleHome
 
 3)
 
@@ -21,11 +21,10 @@ Une fenêtre exécuter ça s'ouvrir et y mettre "CMD", v
 alider une fois l'invite de commande ouverte il mettre ligne par lignes les codes suivants :
 'cd C:\GoogleHome\assistant-plugins
 npm install pm2 -g
-npm install pm2-windows-startup -g
-pm2-startup install
+npm install pm2-windows-startup -g && pm2-startup install
 pm2 start index.js
-Start C:\GoogleHome\GoogleHome.vbs
-exit'
+pm2 save
+Start C:\GoogleHome\GoogleHome.vbs'
 
 Redémarrer votre ordinateur.
 
