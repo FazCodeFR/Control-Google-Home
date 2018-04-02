@@ -3,12 +3,15 @@ Contrôle de son ordinateur Windows avec Google Home.
 
 1)
 
-Requis : https://aymkdn.github.io/assistant-plugins/ (! Mettre le dossier "assistant-plugins" dans le dossier : C:\GoogleHome et lancer l'installation a cet endroit !)
+Requis : https://aymkdn.github.io/assistant-plugins/ suivre le tutoriel et selectionner Plugin "launch" a l'étape 3  (! Mettre le dossier "assistant-plugins" dans le dossier : C:\GoogleHome et lancer l'installation a cet endroit !)
+
+Si le dossier C:\GoogleHome n'existe pas, le créer
+
 
 2)
 
-Une fois l'installation d'assistant-plugins terminé continué ci-dessous
-Mettre GoogleHome.vbs dans le dossier : C:\GoogleHome (Si il n'existe pas, le créer)
+Une fois l'installation d'assistant-plugins terminé continué ci-dessous,
+Mettre GoogleHome.vbs dans le dossier : C:\GoogleHome
 
 3)
 
