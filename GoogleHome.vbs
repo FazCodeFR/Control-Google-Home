@@ -1,4 +1,4 @@
-﻿'Ok Google, sur le pc XXX
+'Ok Google, sur le pc XXX
 'Ok Google, sur l'ordinateur XXX
 ' Applet IFTTT : https://ifttt.com/applets/jSNrZ4vJ-controle-de-l-ordinateur-avec-google-assitant
 ' Fichier GoogleHome.vbs a mettre dans : C:\GoogleHome
