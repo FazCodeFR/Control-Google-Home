@@ -3,7 +3,7 @@
 ' Applet IFTTT : https://ifttt.com/applets/jSNrZ4vJ-controle-de-l-ordinateur-avec-google-assitant
 ' Fichier GoogleHome.vbs a mettre dans : C:\GoogleHome
 Dim MAJ
-MAJ = "1.0.4" 'Version Actuelle du script
+MAJ = "1.0.3" 'Version Actuelle du script
 
 Dim WshShell,fso,CheckMAJUser
 On Error Resume Next
@@ -196,7 +196,6 @@ objHTTP.Open "GET", "https://raw.githubusercontent.com/ABOATDev/Control-Google-H
 objHTTP.Send
 NewVersion = objHTTP.ResponseText
 NewVersion = left(NewVersion, len(NewVersion) - 1) 
-
 if NewVersion > VersionActu Then
 	 If CheckMAJUser = true Then MsgBox "La version : " & NewVersion & " est disponible et va etre installé !" & vbNewLine & vbNewLine & "Notre version actuelle" & VersionActu,vbInformation+vbOKOnly,"Nouvelle version disponible"
      objHTTP.Open "GET", "https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/GoogleHome.vbs", FALSE
