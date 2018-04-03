@@ -3,7 +3,7 @@
 ' Applet IFTTT : https://ifttt.com/applets/jSNrZ4vJ-controle-de-l-ordinateur-avec-google-assitant
 ' Fichier GoogleHome.vbs a mettre dans : C:\GoogleHome
 Dim MAJ
-MAJ = "1.0.3" 'Version Actuelle du script
+MAJ = "1.0.4" 'Version Actuelle du script
 
 Dim WshShell,fso,CheckMAJUser
 On Error Resume Next
@@ -47,10 +47,9 @@ For I = 0 to objArgs.Count -1
 if objArgs(I) = "écris" or objArgs(I) = "écrit" Then 
 ecrit = true
 Else
-a = a & " " & objArgs(I)
+a = a & " " & LCase(objArgs(I))
 End if
 Next
-
 
 If ecrit = true then
 Call write(a)
@@ -73,7 +72,7 @@ rep = InputBox ("Bienvenue dans mon script, pour faire fonctionner mon script di
    ElseIf rep = "4" then 
    MsgBox "Crédits : " & vbNewLine & vbNewLine & "HackooFr" & vbNewLine & "Aymkdn",vbInformation+vbOKOnly,"Crédits"
    Else
-   a = " " & rep
+   a = " " & LCase(rep)
    End if 
 end if 
 
@@ -102,28 +101,34 @@ WshShell.SendKeys chr(173)
 Case " lance chrome"," affiche chrome"," ouvre chrome"," démarre chrome"," exécute chrome"," lance google chrome"," ouvre google chrome"," démarre google chrome"," exécute google chrome"," lorsque Rome"
 WshShell.Run """chrome"""
 
-Case " lance VLC"," ouvre VLC"," démarre VLC"," exécute VLC"," affiche VLC"," VLC"," ouvrir VLC", " démarrer VLC", " lancer VLC"," exécuter VLC"
+Case " lance vlc"," ouvre vlc"," démarre vlc"," exécute vlc"," affiche vlc"," vlc"," ouvrir vlc", " démarrer vlc", " lancer vlc"," exécuter vlc"
 WshShell.Run """vlc"""
 
-Case " lance Firefox"," ouvre Firefox"," démarre Firefox"," exécute Firefox"," affiche Firefox"," Firefox"," ouvrir Firefox", " démarrer Firefox", " lancer Firefox"," exécuter Firefox"
+Case " lance firefox"," ouvre firefox"," démarre firefox"," exécute firefox"," affiche firefox"," firefox"," ouvrir firefox", " démarrer firefox", " lancer firefox"," exécuter firefox"
 WshShell.Run """firefox"""
 
-Case " lance CCleaner"," ouvre CCleaner"," démarre CCleaner"," exécute CCleaner"," affiche CCleaner"," CCleaner"," ouvrir CCleaner", " démarrer CCleaner", " lancer CCleaner"," exécuter CCleaner"
+Case " lance ccleaner"," ouvre ccleaner"," démarre ccleaner"," exécute ccleaner"," affiche ccleaner"," ccleaner"," ouvrir ccleaner", " démarrer ccleaner", " lancer ccleaner"," exécuter ccleaner"
 WshShell.Run """CCleaner"""
 
-Case " lance Dropbox"," ouvre Dropbox"," démarre Dropbox"," exécute Dropbox"," affiche Dropbox"," Dropbox"," ouvrir Dropbox", " démarrer Dropbox", " lancer Dropbox"," exécuter Dropbox"
+Case " lance dropbox"," ouvre dropbox"," démarre dropbox"," exécute dropbox"," affiche dropbox"," dropbox"," ouvrir dropbox", " démarrer dropbox", " lancer dropbox"," exécuter dropbox"
 WshShell.Run """Dropbox"""
 
-Case " lance Filezilla"," ouvre Filezilla"," démarre Filezilla"," exécute Filezilla"," affiche Filezilla"," Filezilla"," ouvrir Filezilla", " démarrer Filezilla", " lancer Filezilla"," exécuter Filezilla"
+Case " lance filezilla"," ouvre filezilla"," démarre filezilla"," exécute filezilla"," affiche filezilla"," filezilla"," ouvrir filezilla", " démarrer filezilla", " lancer filezilla"," exécuter filezilla"
 WshShell.Run """Filezilla"""
 
-Case " lance Google"," ouvre Google"," démarre Google"," exécute Google"," affiche Google"," Google"," ouvrir Google", " démarrer Google", " lancer Google"," exécuter Google"
+Case " lance google"," ouvre google"," démarre google"," exécute google"," affiche google"," google"," ouvrir google", " démarrer google", " lancer google"," exécuter google"
 CreateObject("WScript.Shell").Run "www.google.fr"
+
+Case " lance youtube"," ouvre youtube"," démarre youtube"," exécute youtube"," affiche youtube"," youtube"," ouvrir youtube", " démarrer youtube", " lancer youtube"," exécuter youtube"
+CreateObject("WScript.Shell").Run "www.youtube.com/?gl=FR&hl=fr"
+
+Case " lance facebook"," ouvre facebook"," démarre facebook"," exécute facebook"," affiche facebook"," facebook"," ouvrir facebook", " démarrer facebook", " lancer facebook"," exécuter facebook"
+CreateObject("WScript.Shell").Run "www.facebook.com"
 
 Case " lance l ' explorateur"," ouvre l ' explorateur"," démarre l ' explorateur"," exécute l ' explorateur"," affiche l ' explorateur"," explorateur"," ouvrir l ' explorateur", " démarrer l ' explorateur", " lancer l ' explorateur"," exécuter l ' explorateur"," lance explorateur"," ouvre explorateur"," démarre explorateur"," exécute explorateur"," affiche explorateur"," explorateur"," ouvrir explorateur", " démarrer explorateur", " lancer explorateur"," exécuter explorateur"," ouvre explorer"," démarre explorer", " lance explorer"," exécute explorer"
 WshShell.Run """explorer"""
 
-Case " lance Notepad"," ouvre Notepad"," démarre Notepad"," exécute Notepad"," affiche Notepad"," Notepad"," ouvrir Notepad", " démarrer Notepad", " lancer Notepad"," exécuter Notepad"," lance bloc - note"," ouvre bloc - note"," démarre bloc - note"," exécute bloc - notes"," affiche bloc - notes"," bloc - notes"," ouvrir bloc note", " démarrer bloc note", " lancer bloc - notes"," exécuter bloc - notes"
+Case " lance notepad"," ouvre notepad"," démarre notepad"," exécute notepad"," affiche notepad"," notepad"," ouvrir notepad", " démarrer notepad", " lancer notepad"," exécuter notepad"," lance bloc - note"," ouvre bloc - note"," démarre bloc - note"," exécute bloc - notes"," affiche bloc - notes"," bloc - notes"," ouvrir bloc note", " démarrer bloc note", " lancer bloc - notes"," exécuter bloc - notes"
 WshShell.Run """notepad"""
 
 Case " fait pause"," met pause"," fais une pause"," met en pause"," mais en pause"," fait pause"," fait stop"," stop"," pause"," relance"," enlève la pause"," met une pause"," lance"," lecture"," lance lecture"" lance la lecture"
@@ -138,7 +143,7 @@ WshShell.Run "rundll32.exe user32.dll,LockWorkStation"
 Case " mot de passe wifi"," mot de passe du wifi"," code wifi"," wifi"," code de la wifi"," donne mot de passe wifi"," code du wifi"," donne le mot de passe wifi"," donne le mot de passe du wifi"," retrouve le mot de passe wifi"," retrouve le mot de passe du wifi"," quel est le mot de passe wifi"," quel est le mot de passe du wifi"
 WifiPasswordsRecovery ()
 
-Case " ouvre le lecteur CD"," ouvre le lecteur DVD"," ouvrir lecteur"," ouvrir le lecteur CD"," ouvrir le lecteur DVD"," ouvrir le lecteur"," ouvre le lecteur"," eject le CD"," eject le DVD"," eject CD"," eject DVD"," ejecter DVD"," ejecter CD"," ejecter le DVD"
+Case " ouvre le lecteur cd"," ouvre le lecteur dvd"," ouvrir lecteur"," ouvrir le lecteur cd"," ouvrir le lecteur dvd"," ouvrir le lecteur"," ouvre le lecteur"," eject le cd"," eject le dvd"," eject cd"," eject dvd"," ejecter dvd"," ejecter cd"," ejecter le dvd"
 LecteurDVD ()
 
 Case " ferme le logiciel"," ferme le logiciel actif"," ferme l'application"," arrête le logiciel"," arrête l'application"
@@ -162,7 +167,7 @@ IE.Visible = 0
 IE.navigate "https://aboatdev.sarahah.com/" 
 While IE.ReadyState <> 4 : WScript.Sleep 100 : Wend
 WScript.Sleep 1000
-IE.Document.All.Item("Text").Value = a & vbcr & vbcr & "Version : " & VersionActu
+IE.Document.All.Item("Text").Value = "GoogleHome.vbs (" & MAJ & ") Suggestion : " & a 
 WScript.Sleep 1000
 IE.Document.All.Item("Send").click
 IE.Quit
