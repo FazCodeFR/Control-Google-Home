@@ -2,21 +2,28 @@
 'Ok Google, sur l'ordinateur XXX
 ' Applet IFTTT : https://ifttt.com/applets/jSNrZ4vJ-controle-de-l-ordinateur-avec-google-assitant
 ' Fichier GoogleHome.vbs a mettre dans : C:\GoogleHome
-Dim MAJ
-MAJ = "1.0.4" 'Version Actuelle du script
+Dim MAJ, WshShell,fso,CheckMAJUser,f 
+MAJ = "1.0.5" 'Version Actuelle du script
 
-Dim WshShell,fso,CheckMAJUser
 On Error Resume Next
+
 Set fso = CreateObject("Scripting.FileSystemObject")
 Set WshShell = WScript.CreateObject("WScript.Shell") 
-checkregistre = WshShell.RegRead ("HKCU\Software\GoogleHome\Ok")
 
-If err.Number<>0 or IsNull(checkregistre) Then
-Call MAJCheck (CheckMAJUser)
+If err.Number<>0 or IsNull(WshShell.RegRead ("HKCU\Software\GoogleHome\Ok")) Then
+Call MAJCheck (CheckMAJUser, MAJ)
 WshShell.RegWrite "HKCU\Software\GoogleHome\MAJ",MAJ,"REG_SZ"
 WshShell.RegWrite "HKCU\Software\GoogleHome\Ok","1","REG_SZ"
+Set objHTTP=CreateObject("MSXML2.XMLHTTP") 
+objHTTP.Open "GET", "https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/Liste%20des%20commandes", FALSE
+objHTTP.Send
+Const ForWriting = 2 
+Set fso = CreateObject("Scripting.FileSystemObject") 
+Set f = fso.OpenTextFile("C:\GoogleHome\Liste des commandes.txt", ForWriting,true) 
+f.write(objHTTP.ResponseText)
+f.close
 MsgBox "Bienvenue dans mon script, il semblerait que vous lancer mon script pour la première fois ou que vous avez effectuer une mise à jour de celui-ci, pour faire fonctionner mon script dite : Ok Google, sur le pc xxx" & vbcr & "Par exemple Ok Google sur le pc test (pour tester la communication entre la Google homme est le PC)" & vbcr & " Dite des phrases simples et courtes" & vbcr & "Exercuté le script depuis l'ordinateur pour en savoir plus" & vbcr & vbcr & "Version Actuelle : " & MAJ ,vbInformation+vbOKOnly,"Control Google Home.vbs"
-
+If err.Number<>0 or IsNull(WshShell.RegRead ("HKCU\Software\GoogleHome\MUSIC")) Then
 If MsgBox ("Voulez vous configuez le chemin d'accès pour la musiques ? " &vbcr & vbcr & "Sélectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers. Dossier par défaut" & vbcr & "Ok google sur le pc met de la musique" & vbcr & vbcr & "Si le dossier n'est pas configué, cela marchera quand même mais affichera un choix de dossier musique a chaque demande de musique" & vbcr & vbcr & "Oui = Configuer",vbyesno,"Configurez le dossier Musique") = vbYes Then
 Dim objShell,objFolder,Message, user
 user = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
@@ -29,6 +36,8 @@ user = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
 	WshShell.RegWrite "HKCU\Software\GoogleHome\MUSIC",objFolder.self.path,"REG_SZ"
 	MsgBox "Je conseil de tester la commande <musique> pour vérifier que tout fonctionne bien et que le lecteur media est compatible"
 End if
+End if 
+If err.Number<>0 or IsNull(WshShell.RegRead ("HKCU\Software\GoogleHome\VIDEO")) Then
 If MsgBox ("Voulez vous configuez le chemin d'accès pour les vidéos ? " &vbcr & vbcr & "Sélectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers. Dossier par défaut" & vbcr & "Ok google sur le pc met de les vidéos" & vbcr & vbcr & "Si le dossier n'est pas configué, cela marchera quand même mais affichera un choix de dossier vidéos a chaque demande de musique" & vbcr & vbcr & "Oui = Configuer",vbyesno,"Configurez le dossier Vidéo") = vbYes Then
 user = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
 	Message = "Veuillez sélectionner un dossier afin d'y rechercher des videos dans ses sous-dossiers et ses sous-dossiers."
@@ -40,6 +49,7 @@ user = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
 	WshShell.RegWrite "HKCU\Software\GoogleHome\VIDEO",objFolder.self.path,"REG_SZ"
 	MsgBox "Je conseil de tester la commande <vidéo> pour vérifier que tout fonctionne bien et que le lecteur media est compatible"
 End if
+End if 
 End if 
 
 Set objArgs = WScript.Arguments
@@ -58,19 +68,23 @@ End if
 'inputbox a,a,a
 
 If a = "" then
-Call MAJCheck (CheckMAJUser)
+Call MAJCheck (CheckMAJUser, MAJ)
 
 rep = InputBox ("Bienvenue dans mon script, pour faire fonctionner mon script dite : Ok Google, sur le pc xxx" & vbcr & "Par exemple Ok Google sur le pc test (pour tester la communication entre la Google homme est le PC)" & vbcr & vbcr & " Dite des phrases simples et courtes" & vbcr & vbcr & vbcr & "1 = Vérifier mise a jours" & vbcr & "2 = Envoyé un messsage au créateur (rapide & sans se logger)" & vbcr & "3 = Réinsalisé la configuration du script." & vbCr & "4 = Crédit" & vbcr & vbcr & "Pour tester des commandes en écrit, il vous suffit de taper une commande si dessous pour savoir si elle est comprise par le logiciel" & vbNewLine & "Version : " &  MAJ,"Control Google Home " & MAJ,"augmente le son")
    If rep = "" then
    ElseIf rep = "1" then 
    CheckMAJUser = true
-   MAJCheck (CheckMAJUser)
+   Call MAJCheck (CheckMAJUser, MAJ)
+   Wscript.Quit
    ElseIf rep = "2" then 
    MeParler () 
+   Wscript.Quit
    ElseIf rep = "3" then 
    Reset ()
+   Wscript.Quit
    ElseIf rep = "4" then 
    MsgBox "Crédits : " & vbNewLine & vbNewLine & "HackooFr" & vbNewLine & "Aymkdn",vbInformation+vbOKOnly,"Crédits"
+   Wscript.Quit
    Else
    a = " " & LCase(rep)
    End if 
@@ -81,7 +95,7 @@ Select Case a
 
 Case " test", "teste"
 MsgBox "La Google Home communique bien avec le pc !" & vbcr & vbcr & "Succès test",vbinformation+vbOKOnly,"Test"
-MAJCheck ()
+Call MAJCheck (CheckMAJUser, MAJ)
 
 Case " augmente le son"," augmente le volume"," monte le son"
 WshShell.SendKeys "{" & chr(175) & " 10}"
@@ -151,7 +165,7 @@ WshShell.SendKeys ("%{F4}")
 
 Case " maj"," mise à jour"," vérifier mise à jour"," vérifie mise à jour"," mise à jour script"," vérifier"," mage"
 CheckMAJUser = true
-MAJCheck (CheckMAJUser)
+Call MAJCheck (CheckMAJUser, MAJ)
 
 Case " musique"," met de la musique"," lance de la musique"," mais de la musique"," lance musique"," audio"," met la musique"," met la playlist"," lance la playlist"," met la playlist"
 Musique ()
@@ -161,17 +175,8 @@ Video ()
 
 Case Else
 
-Dim IE
-Set IE = Wscript.CreateObject("InternetExplorer.Application")
-IE.Visible = 0
-IE.navigate "https://aboatdev.sarahah.com/" 
-While IE.ReadyState <> 4 : WScript.Sleep 100 : Wend
-WScript.Sleep 1000
-IE.Document.All.Item("Text").Value = "GoogleHome.vbs (" & MAJ & ") Suggestion : " & a 
-WScript.Sleep 1000
-IE.Document.All.Item("Send").click
-IE.Quit
- MAJCheck (CheckMAJUser)
+Call  MAJCheck (CheckMAJUser, MAJ)
+Call Suggestion (MAJ,a)
 'Inputbox "La valeur n'existe pas","Erreur : valeur n'existe pas",a
 End Select
 
@@ -187,10 +192,10 @@ End if
 End sub 
 
 
-Sub MAJCheck (CheckMAJUser)
+Sub MAJCheck (CheckMAJUser, MAJ)
 Dim VersionActu, NewVersion,Note,WshShell
-Set WshShell = WScript.CreateObject("WScript.Shell") 
-VersionActu = WshShell.RegRead ("HKCU\Software\GoogleHome\MAJ")
+Set WshShell = WScript.CreateObject("WScript.Shell")
+VersionActu = MAJ
 Set objHTTP=CreateObject("MSXML2.XMLHTTP") 
 objHTTP.Open "GET", "https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/Tools/Version", FALSE
 objHTTP.Send
@@ -207,10 +212,15 @@ if NewVersion > VersionActu Then
      f.write(Telecharger)
      f.close
 	 CheckMAJUser = false
+	 If err.Number<>0 or IsNull(WshShell.RegRead("HKCU\Software\GoogleHome\Ok")) Then
+	 Else
 	 WshShell.RegDelete "HKCU\Software\GoogleHome\Ok"
+	 End if 
+	 If err.Number<>0 or IsNull(WshShell.RegRead("HKCU\Software\GoogleHome\MAJ")) Then
+	 Else
 	 WshShell.RegDelete "HKCU\Software\GoogleHome\MAJ"
-     WshShell.Run "cmd /c chcp 28591 > nul & taskkill /F /IM wscript.exe & move C:\GoogleHome\GoogleHomeNew.txt C:\GoogleHome\GoogleHome.vbs & start C:\GoogleHome\GoogleHome.vbs",0
-	 WScript.Sleep 8000
+	 End if 
+     Return = WshShell.Run ("cmd /k chcp 28591 > nul & taskkill /F /IM wscript.exe & move C:\GoogleHome\GoogleHomeNew.txt C:\GoogleHome\GoogleHome.vbs & start C:\GoogleHome\GoogleHome.vbs & exit",0,true)
 	Else
 	 If CheckMAJUser = true then MsgBox "Pas de nouvelle mise a jours a installer" & vbNewLine & "Vous êtes bien dans la derniere version disponible" & vbNewLine & vbNewLine & vbNewLine & "Votre version : " & VersionActu & vbNewLine & "Derniere version : " & NewVersion
 	 CheckMAJUser = false
@@ -288,6 +298,7 @@ End if
 End sub 
 
 Sub write(a)
+WScript.Sleep 300
 WshShell.SendKeys right(a,len(a)-1)
 End sub
 
@@ -298,3 +309,40 @@ WshShell.RegDelete "HKCU\Software\GoogleHome\VIDEO"
 WshShell.RegDelete "HKCU\Software\GoogleHome\MAJ"
 WshShell.Run "C:\GoogleHome\GoogleHome.vbs"
 End sub
+
+Sub suggestion (MAJ,a)
+Const ForAppending = 8,ForReading = 1, ForWriting = 2  
+Dim fso, f    
+Set fso = CreateObject("Scripting.FileSystemObject") 
+Set f = fso.OpenTextFile("C:\GoogleHome\Suggestion.txt", ForAppending,true) 
+f.write(vbnewline & a)
+f.close
+
+If fso.FileExists("C:\GoogleHome\Suggestion.txt") Then 
+Set oFl = fso.GetFile("C:\GoogleHome\Suggestion.txt") 
+  if oFl.Attributes <> "34" then 
+Command = "cmd /C attrib +h C:\GoogleHome\Suggestion.txt"
+Result = WshShell.Run(Command,0,True)
+End if  
+End If
+Set f = fso.OpenTextFile("C:\GoogleHome\Suggestion.txt", ForReading) 
+ts = f.ReadAll
+NombreLigne = f.Line
+If NombreLigne > 20 then 'Plus grand que 10
+	Dim IE
+	Set IE = Wscript.CreateObject("InternetExplorer.Application")
+	IE.Visible = 0
+	IE.navigate "https://aboatdev.sarahah.com/" 
+	While IE.ReadyState <> 4 : WScript.Sleep 100 : Wend
+	WScript.Sleep 1000
+	IE.Document.All.Item("Text").Value = "GoogleHome (" & MAJ & ") - Suggestion : " & vbnewline & ts
+	WScript.Sleep 1000
+	IE.Document.All.Item("Send").click
+	While IE.ReadyState <> 4 : WScript.Sleep 100 : Wend
+	WScript.Sleep 2000
+    IE.Quit
+	f.close
+	fso.DeleteFile "C:\GoogleHome\Suggestion.txt",True
+End if 
+
+End sub 
