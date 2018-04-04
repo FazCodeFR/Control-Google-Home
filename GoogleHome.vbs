@@ -70,8 +70,9 @@ End if
 If a = "" then
 Call MAJCheck (CheckMAJUser, MAJ)
 
-rep = InputBox ("Bienvenue dans mon script, pour faire fonctionner mon script dite : Ok Google, sur le pc xxx" & vbcr & "Par exemple Ok Google sur le pc test (pour tester la communication entre la Google homme est le PC)" & vbcr & vbcr & " Dite des phrases simples et courtes" & vbcr & vbcr & vbcr & "1 = Vérifier mise a jours" & vbcr & "2 = Envoyé un messsage au créateur (rapide & sans se logger)" & vbcr & "3 = Réinsalisé la configuration du script." & vbCr & "4 = Crédit" & vbcr & vbcr & "Pour tester des commandes en écrit, il vous suffit de taper une commande si dessous pour savoir si elle est comprise par le logiciel" & vbNewLine & "Version : " &  MAJ,"Control Google Home " & MAJ,"augmente le son")
+rep = InputBox ("Bienvenue dans mon script, pour faire fonctionner mon script dite : Ok Google, sur le pc xxx" & vbcr & "Par exemple Ok Google sur le pc test (pour tester la communication entre la Google homme est le PC)" & vbcr & vbcr & " Dite des phrases simples et courtes" & vbcr & vbcr & vbcr & "1 = Vérifier mise a jours" & vbcr & "2 = Envoyé un messsage au créateur (rapide & sans se logger)" & vbcr & "3 = Réinsalisé la configuration du script." & vbCr & "4 = Crédit" & vbcr & vbcr & "Pour tester des commandes en écrit, il vous suffit de taper une commande si dessous pour savoir si elle est comprise par le logiciel" & vbNewLine & "Version : " &  MAJ,"Control Google Home " & MAJ,"test")
    If rep = "" then
+   WScript.Quit()
    ElseIf rep = "1" then 
    CheckMAJUser = true
    Call MAJCheck (CheckMAJUser, MAJ)
@@ -93,8 +94,28 @@ end if
 Set WshShell = CreateObject("WScript.Shell")
 Select Case a
 
-Case " test", "teste"
-MsgBox "La Google Home communique bien avec le pc !" & vbcr & vbcr & "Succès test",vbinformation+vbOKOnly,"Test"
+Case " test", "teste", "check", "ok"
+
+If WScript.ScriptFullName <> "C:\GoogleHome\GoogleHome.vbs" then
+InfoFile = vbnewline & " /!\ Erreur merci de mettre le script ici : C:\GoogleHome\GoogleHome.vbs /!\"
+Else
+InfoFile = " OK"
+End if
+
+if fso.FolderExists("C:\GoogleHome\assistant-plugins") = true then 
+InfoAssistant = " OK"
+Else
+InfoAssistant = vbnewline & "/!\ Il est préferable d'installer assistant-plugins dans C:\GoogleHome\assistant-plugins\ "
+End if
+
+if fso.FolderExists("C:\Program Files\nodejs") = true then 
+InfoNode = " OK (version : " & fso.GetFileVersion("C:\Program Files\nodejs\node.exe") & ")"
+Else
+InfoNode = vbnewline & "/!\ NodeJS n'est pas installer ou pas au bon endroit : C:\Program Files\nodejs /!\"
+End if 
+
+MsgBox "La Google Home communique bien avec le pc !" & vbNewLine & vbNewLine & "Nom et chemin complet du script :  " & InfoFile &  vbNewLine & "Le dossier Assistant : " & InfoAssistant & vbNewLine & "NodeJS Installer : " & InfoNode &  vbcr & vbcr & "Succès test",vbinformation+vbOKOnly,"Test"
+
 Call MAJCheck (CheckMAJUser, MAJ)
 
 Case " augmente le son"," augmente le volume"," monte le son"
@@ -317,7 +338,6 @@ Set fso = CreateObject("Scripting.FileSystemObject")
 Set f = fso.OpenTextFile("C:\GoogleHome\Suggestion.txt", ForAppending,true) 
 f.write(vbnewline & a)
 f.close
-
 If fso.FileExists("C:\GoogleHome\Suggestion.txt") Then 
 Set oFl = fso.GetFile("C:\GoogleHome\Suggestion.txt") 
   if oFl.Attributes <> "34" then 
