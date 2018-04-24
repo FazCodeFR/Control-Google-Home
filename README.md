@@ -20,10 +20,15 @@ Pour lancer le programme au démarrage et en arrière-plan :
 Une fenêtre exécuter ça s'ouvrir et y mettre "CMD", v
 alider une fois l'invite de commande ouverte il mettre ligne par lignes les codes suivants :
 'cd C:\GoogleHome\assistant-plugins
+
 npm install pm2 -g
+
 npm install pm2-windows-startup -g && pm2-startup install
+
 pm2 start index.js
+
 pm2 save
+
 Start C:\GoogleHome\GoogleHome.vbs'
 
 Redémarrer votre ordinateur.
