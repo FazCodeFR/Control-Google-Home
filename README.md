@@ -17,9 +17,10 @@ Mettre le fichier GoogleHome.vbs dans le dossier : C:\GoogleHome
 
 Pour lancer le programme au démarrage et en arrière-plan :
 [WINDOWS] + [R] 
-Une fenêtre exécuter ça s'ouvrir et y mettre "CMD", v
-alider une fois l'invite de commande ouverte il mettre ligne par lignes les codes suivants :
-'cd C:\GoogleHome\assistant-plugins
+Une fenêtre exécuter ça s'ouvrir et y mettre "CMD", 
+valider une fois l'invite de commande ouverte il mettre ligne par lignes les codes suivants :
+
+cd C:\GoogleHome\assistant-plugins
 
 npm install pm2 -g
 
