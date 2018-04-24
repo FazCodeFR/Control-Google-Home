@@ -9,7 +9,7 @@ Liste des commandes :
 
 * Son *
 augmente le son :
-augmente le volume"," monte le son" _
+augmente le volume"," monte le son"
 
 monte le son au max : 
 monte le son au maximum"," monte le volume au maximum"," volume max"," son au max"," augmente le son au maximum"
@@ -27,7 +27,7 @@ mute le son"," muet"," le son a 0"," coupe le son"," coupe le volume"," coupe l'
 * Commande *
 
 fait pause : 
-met pause"," fais une pause"," met en pause"," mais en pause"," fait pause"," fait stop"," stop"," pause"," relance"," enlève la pause"," met une pause"," lance"," lecture"," lance lecture"" lance la lecture"
+"met pause"," fais une pause"," met en pause"," mais en pause"," fait pause"," fait stop"," stop"," pause"," relance"," enlève la pause"," met une pause"," lance"," lecture"," lance lecture"" lance la lecture"
 
 
 Lance la lecture
@@ -35,7 +35,7 @@ Lance la lecture
 *Exercute*
 Mot clé : lance X , ouvre X, démarre X, exécute X, affiche X, X, ouvrir X,  démarrer X, lancer X, exécuter X
 
-X = Google Chrome ; VLC ; firefox ; CCleaner ; Dropbox ; Filezilla ; Notepad ; explorer 
+X = le logiciel a lancé
 
 
 *Système*
@@ -51,18 +51,19 @@ mot de passe du wifi"," code wifi"," wifi"," code de la wifi"," donne mot de pas
 ouvrir lecteur :
 ouvre le lecteur CD"," ouvre le lecteur DVD" ouvrir le lecteur CD"," ouvrir le lecteur DVD"," ouvrir le lecteur"," ouvre le lecteur"," eject le CD"," eject le DVD"," eject CD"," eject DVD"," ejecter DVD"," ejecter CD"," ejecter le DVD"
 
-
 ferme le logiciel actif :
 ferme le logiciel," ferme l'application"," arrête le logiciel"," arrête l'application"
-
 
 lance de la musique : 
 musique"," met de la musique"," lance de la musique"," mais de la musique"," lance musique"," audio"," met la musique"," met la playlist"," lance la playlist"," met la playlist"
 
 lance la vidéo :
-vidéo"," film"," met vidéo"," film"," mais vidéo"," lance vidéo"," lance film"," met les vidéos"," met la vidéo"," met le film"," met les films"," lance la vidéo"," met la vidéo"
+"vidéo"," film"," met vidéo"," film"," mais vidéo"," lance vidéo"," lance film"," met les vidéos"," met la vidéo"," met le film"," met les films"," lance la vidéo"," met la vidéo"
 
 
 C'est tout ?
 N'hésitez pas à me contacter pour rajouter des commandes ou logiciels (ça me prend 2min chrono et ça peut aider d'autres personnes)
-FB : ABOAT Hack ou en "issue" :https://github.com/ABOATDev/Control-Google-Home/issues
+FB : ABOAT Hack
+issue :https://github.com/ABOATDev/Control-Google-Home/issues
+https://aboatdev.sarahah.com/
+
