@@ -11,17 +11,22 @@ Liste des commandes :
 augmente le son :
 augmente le volume"," monte le son"
 
+
 monte le son au max : 
 monte le son au maximum"," monte le volume au maximum"," volume max"," son au max"," augmente le son au maximum"
+
 
 baisse le son : 
 " descend le son"," descend le volume"," baisse le volume"
 
+
 baisse le son au max : 
 " descend le son au max"," baisse le son au max"," baisse le volume au max"," baisse le son au maximum"," baisse le volume au maximum"
 
+
 mute le volume :
 mute le son"," muet"," le son a 0"," coupe le son"," coupe le volume"," coupe l'audio"," remet le volume"," remet le son"
+
 
 
 * Commande *
@@ -29,21 +34,34 @@ mute le son"," muet"," le son a 0"," coupe le son"," coupe le volume"," coupe l'
 fait pause : 
 "met pause"," fais une pause"," met en pause"," mais en pause"," fait pause"," fait stop"," stop"," pause"," relance"," enlève la pause"," met une pause"," lance"," lecture"," lance lecture"" lance la lecture"
 
-
 Lance la lecture
+
+
+Ecrire du text : 
+"ecrit X" x comme mot ou phrase
+
 
 *Exercute*
 Mot clé : lance X , ouvre X, démarre X, exécute X, affiche X, X, ouvrir X,  démarrer X, lancer X, exécuter X
 
-X = le logiciel a lancé
+X = le logiciel a lancé (n'importe quel logiciel devrais etre possible de lancer)
+(les application windows 10 compatible au script : projecteur, netflix, cortana) 
+(les site compatible au script: google, youtube,facebook, instant-hack,github)
 
 
 *Système*
+
+test : 
+Pour tester le bon fonctionnement du script
+
 éteint le système : 
 " éteint le"," arrête le"," éteint le pc"," éteint l'ordinateur"," arrête le système"," arrête"
 
 verrouille la session :
 verrouille, le verrouille le pc"," le verrouiller"," met en veille"," mettre en veille"," met le en veille"," veille"," verrouillage"," verrouille"," metre en veille"
+
+écran de veille :
+"Affiche l'écran de vieille"
 
 mot de passe wifi :
 mot de passe du wifi"," code wifi"," wifi"," code de la wifi"," donne mot de passe wifi"," code du wifi"," donne le mot de passe wifi"," donne le mot de passe du wifi"," retrouve le mot de passe wifi"," retrouve le mot de passe du wifi"," quel est le mot de passe wifi"," quel est le mot de passe du wifi"
@@ -59,6 +77,11 @@ musique"," met de la musique"," lance de la musique"," mais de la musique"," lan
 
 lance la vidéo :
 "vidéo"," film"," met vidéo"," film"," mais vidéo"," lance vidéo"," lance film"," met les vidéos"," met la vidéo"," met le film"," met les films"," lance la vidéo"," met la vidéo"
+
+eject la clé usb :
+"eject usb", "eject clé usb", "eject la clé usb" , "retire usb" , "retire la clé usb","retire clé usb"
+
+
 
 
 C'est tout ?
