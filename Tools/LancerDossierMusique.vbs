@@ -56,7 +56,7 @@ Set wshShell = CreateObject( "WScript.Shell" )
 user = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
 checkregistre = WshShell.RegRead ("HKCU\Software\GoogleHome\MUSIC")
 If err.Number<>0 or IsNull(checkregistre) Then
-	Message = "Veuillez sélectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers."
+	Message = "Veuillez sÃ©lectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers."
 	Set objShell = CreateObject("Shell.Application")
 	Set objFolder = objShell.BrowseForFolder(0,Message,1,user)
 	If objFolder Is Nothing Then
@@ -153,4 +153,4 @@ End Function
 Sub Pause(Secs)    
 	Wscript.Sleep(Secs * 1000)    
 End Sub   
-'**********************************************************************************************
+'*********************************************************************************************
