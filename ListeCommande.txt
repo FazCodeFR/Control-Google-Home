@@ -32,7 +32,7 @@ mute le son"," muet"," le son a 0"," coupe le son"," coupe le volume"," coupe l'
 * Commande *
 
 fait pause : 
-"met pause"," fais une pause"," met en pause"," mais en pause"," fait pause"," fait stop"," stop"," pause"," relance"," enlève la pause"," met une pause"," lance"," lecture"," lance lecture"" lance la lecture"
+"met pause"," fais une pause"," met en pause"," mais en pause"," fait pause"," fait stop"," stop"," pause"," relance"," enlÃ¨ve la pause"," met une pause"," lance"," lecture"," lance lecture"" lance la lecture"
 
 Lance la lecture
 
@@ -42,26 +42,26 @@ Ecrire du text :
 
 
 *Exercute*
-Mot clé : lance X , ouvre X, démarre X, exécute X, affiche X, X, ouvrir X,  démarrer X, lancer X, exécuter X
+Mot clÃ© : lance X , ouvre X, dÃ©marre X, exÃ©cute X, affiche X, X, ouvrir X,  dÃ©marrer X, lancer X, exÃ©cuter X
 
-X = le logiciel a lancé (n'importe quel logiciel devrais etre possible de lancer)
+X = le logiciel a lancÃ© (n'importe quel logiciel devrais etre possible de lancer)
 (les application windows 10 compatible au script : projecteur, netflix, cortana) 
 (les site compatible au script: google, youtube,facebook, instant-hack,github)
 
 
-*Système*
+*SystÃ¨me*
 
 test : 
 Pour tester le bon fonctionnement du script
 
-éteint le système : 
-" éteint le"," arrête le"," éteint le pc"," éteint l'ordinateur"," arrête le système"," arrête"
+Ã©teint le systÃ¨me : 
+" Ã©teint le"," arrÃªte le"," Ã©teint le pc"," Ã©teint l'ordinateur"," arrÃªte le systÃ¨me"," arrÃªte"
 
 verrouille la session :
 verrouille, le verrouille le pc"," le verrouiller"," met en veille"," mettre en veille"," met le en veille"," veille"," verrouillage"," verrouille"," metre en veille"
 
-écran de veille :
-"Affiche l'écran de vieille"
+Ã©cran de veille :
+"Affiche l'Ã©cran de vieille"
 
 mot de passe wifi :
 mot de passe du wifi"," code wifi"," wifi"," code de la wifi"," donne mot de passe wifi"," code du wifi"," donne le mot de passe wifi"," donne le mot de passe du wifi"," retrouve le mot de passe wifi"," retrouve le mot de passe du wifi"," quel est le mot de passe wifi"," quel est le mot de passe du wifi"
@@ -70,22 +70,22 @@ ouvrir lecteur :
 ouvre le lecteur CD"," ouvre le lecteur DVD" ouvrir le lecteur CD"," ouvrir le lecteur DVD"," ouvrir le lecteur"," ouvre le lecteur"," eject le CD"," eject le DVD"," eject CD"," eject DVD"," ejecter DVD"," ejecter CD"," ejecter le DVD"
 
 ferme le logiciel actif :
-ferme le logiciel," ferme l'application"," arrête le logiciel"," arrête l'application"
+ferme le logiciel," ferme l'application"," arrÃªte le logiciel"," arrÃªte l'application"
 
 lance de la musique : 
 musique"," met de la musique"," lance de la musique"," mais de la musique"," lance musique"," audio"," met la musique"," met la playlist"," lance la playlist"," met la playlist"
 
-lance la vidéo :
-"vidéo"," film"," met vidéo"," film"," mais vidéo"," lance vidéo"," lance film"," met les vidéos"," met la vidéo"," met le film"," met les films"," lance la vidéo"," met la vidéo"
+lance la vidÃ©o :
+"vidÃ©o"," film"," met vidÃ©o"," film"," mais vidÃ©o"," lance vidÃ©o"," lance film"," met les vidÃ©os"," met la vidÃ©o"," met le film"," met les films"," lance la vidÃ©o"," met la vidÃ©o"
 
-eject la clé usb :
-"eject usb", "eject clé usb", "eject la clé usb" , "retire usb" , "retire la clé usb","retire clé usb"
-
-
+eject la clÃ© usb :
+"eject usb", "eject clÃ© usb", "eject la clÃ© usb" , "retire usb" , "retire la clÃ© usb","retire clÃ© usb"
 
 
-C'est tout ? 
-N'hésitez pas à me contacter pour rajouter des commandes ou logiciels (ça me prend 2min chrono et ça peut aider d'autres personnes)
+
+
+C'est tout ?
+N'hÃ©sitez pas Ã  me contacter pour rajouter des commandes ou logiciels (Ã§a me prend 2min chrono et Ã§a peut aider d'autres personnes)
 FB : ABOAT Hack
 issue :https://github.com/ABOATDev/Control-Google-Home/issues
 https://aboatdev.sarahah.com/
