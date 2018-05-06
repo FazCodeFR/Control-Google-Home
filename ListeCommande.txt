@@ -85,7 +85,7 @@ eject la clé usb :
 
 
 C'est tout ?
-N'hésitez pas à me contacter pour rajouter des commandes ou logiciels (ça me prend 2min chrono et ça peut aider d'autres personnes)
+N'hésitez pas à me contacter pour rajouter des commandes ou logiciels (ça me prend 2min chrono et ça peut aider d'autres personnes).
 FB : ABOAT Hack
 issue :https://github.com/ABOATDev/Control-Google-Home/issues
 https://aboatdev.sarahah.com/
