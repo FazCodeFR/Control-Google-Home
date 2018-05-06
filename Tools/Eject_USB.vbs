@@ -1,4 +1,4 @@
-﻿'----------------------------Original : NumSerie_Usb.vbs-------------------
+'----------------------------Original : NumSerie_Usb.vbs-------------------
 'Tester et vérifier si votre clé USB est connecté ou non, 
 'si cette dernière est connectée alors le script nous donne son N° de Série.
 '© Hackoo
