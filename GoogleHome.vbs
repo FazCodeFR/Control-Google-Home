@@ -4,7 +4,7 @@
 ' Projet  : https://github.com/ABOATDev/Control-Google-Home
 
 Dim MAJ, WS,fso,CheckMAJUser,f,IE,objHTTP
-MAJ = "1.0.6" 'Version Actuelle du script
+MAJ = "1.0.7" 'Version Actuelle du script
 
 On Error Resume Next
 
@@ -18,10 +18,10 @@ If err.Number<>0 or IsNull(WS.RegRead ("HKCU\Software\GoogleHome\Ok")) Then
 Call MAJCheck (CheckMAJUser, MAJ)
 WS.RegWrite "HKCU\Software\GoogleHome\MAJ",MAJ,"REG_SZ"
 WS.RegWrite "HKCU\Software\GoogleHome\Ok","1","REG_SZ"
-objHTTP.Open "GET", "https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/Liste%20des%20commandes", FALSE
+objHTTP.Open "GET", "https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/ListeCommande.txt", FALSE
 objHTTP.Send
 Const ForWriting = 2
-Set f = fso.OpenTextFile("C:\GoogleHome\Liste des commandes.txt", ForWriting,true) 
+Set f = fso.OpenTextFile("C:\GoogleHome\ListeCommande.txt", ForWriting,true) 
 f.write(objHTTP.ResponseText)
 f.close
 MsgBox "Bienvenue dans mon script, il semblerait que vous lancer mon script pour la première fois ou que vous avez effectuer une mise à jour de celui-ci, pour faire fonctionner mon script dite : Ok Google, sur le pc xxx" & vbcr & "Par exemple Ok Google sur le pc test (pour tester la communication entre la Google homme est le PC)" & vbcr & " Dite des phrases simples et courtes" & vbcr & "Exercuté le script depuis l'ordinateur pour en savoir plus" & vbcr & vbcr & "Version Actuelle : " & MAJ ,vbInformation+vbOKOnly,"Control Google Home.vbs"
@@ -157,6 +157,10 @@ Video ()
 
 Case "eject usb", "eject clé usb", "eject la clé usb" , "retire usb" , "retire la clé usb","retire clé usb"
 Eject_USB ()
+
+
+case "liste des commandes", "liste commande", "liste des commandes" , "détail des commandes", "les commandes disponible"
+ListeCommande ()
 
 Case Else
 
@@ -299,6 +303,19 @@ End if
 	WS.Run "C:\GoogleHome\Eject_USB.vbs"
 End sub 
 
+Sub ListeCommande ()
+On Error Resume Next
+objHTTP.Open "GET", "https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/ListeCommande.txt", FALSE
+objHTTP.Send
+Telecharger = objHTTP.ResponseText
+Const ForWriting = 2 
+Dim f
+Set f = fso.OpenTextFile("C:\GoogleHome\ListeCommande.txt", ForWriting,true) 
+f.write(Telecharger)
+f.close
+WScript.Sleep 100
+WS.Run "C:\GoogleHome\ListeCommande.txt"
+End sub 
 
 Sub write(a)
 WScript.Sleep 300
@@ -375,7 +392,6 @@ Case "netflix"
 WS.Run "netflix:"
 Case "cortana","menu windows"
 WS.Run "ms-cortana://search/"
-
 Case "test", "teste", "check", "un test", "ok","vérifie","vérification"
 Call Check ()
 Call MAJCheck (CheckMAJUser, MAJ)
@@ -386,12 +402,7 @@ WS.Run ""& Chr(34) & logiciel & Chr(34) & ""
 End Select
 Wscript.Quit ()
 End if
-
-
 End function
-
-
-
 
 Sub Check ()
 If WScript.ScriptFullName <> "C:\GoogleHome\GoogleHome.vbs" then
@@ -409,7 +420,6 @@ InfoNode = vbnewline & "OK - C:\Program Files\nodejs (V" & fso.GetFileVersion("C
 Else
 InfoNode = vbnewline & "/!\ NodeJS n'est pas installer ou pas au bon endroit /!\"
 End if 
-
 Compteur = 0
 Set objWMI = GetObject("winmgmts:root\cimv2") 
 sQuery = "Select * from Win32_process" 
@@ -434,8 +444,6 @@ InfoPM2 = "OK"
 Else
 InfoPM2 = vbNewLine & "/!\ le fichier invisible.vbs est introuvable vérifier l'installation de PM2 /!\"
 End if
-
-
 objHTTP.Open "GET", "https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/Tools/Version", FALSE
 objHTTP.Send
 NewVersion = objHTTP.ResponseText
