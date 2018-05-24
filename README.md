@@ -3,7 +3,8 @@ Contrôle de son ordinateur Windows avec Google Home.
 
 1)
 
-Requis : https://aymkdn.github.io/assistant-plugins/ suivre le tutoriel et selectionner Plugin "launch" a l'étape 3  (! Mettre le dossier "assistant-plugins" dans le dossier : C:\GoogleHome et lancer l'installation a cet endroit !)
+Requis : https://aymkdn.github.io/assistant-plugins/ suivre le tutoriel et selectionner Plugin "launch" a l'étape 3  
+(! Mettre le dossier "assistant-plugins" dans le dossier : C:\GoogleHome et lancer l'installation a cet endroit !)
 
 Si le dossier C:\GoogleHome n'existe pas, le créer
 
@@ -26,11 +27,13 @@ npm install pm2 -g
 
 npm install pm2-windows-startup -g && pm2-startup install
 
+pm2
+
 pm2 start index.js
 
 pm2 save
 
-Start C:\GoogleHome\GoogleHome.vbs'
+Start C:\GoogleHome\GoogleHome.vbs
 
 Redémarrer votre ordinateur.
 
