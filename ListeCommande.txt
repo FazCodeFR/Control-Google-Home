@@ -42,7 +42,18 @@ Lance la lecture
 " lecture"," lance lecture"" lance la lecture"
 
 Ecrire du text : 
-"ecrit X" x comme mot ou phrase
+"ecrit X" 
+x comme mot ou phrase
+
+Afficher un message sur l'ordinateur : 
+message *
+messagebox * 
+x comme mot ou phrase
+Ex : Ok google sur le pc message il est l'heure de manger ! viens
+
+
+
+
 
 
 *Exercute*
