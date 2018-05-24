@@ -1,13 +1,17 @@
-Option Explicit
+Dim fso,oFile,WS,ScriptChemin
+Set WS = CreateObject("WScript.Shell")
+Set fso = CreateObject("Scripting.FileSystemObject")
+
+ScriptChemin = Left(Left(WScript.ScriptFullName, InStr(WScript.ScriptFullName, WScript.ScriptName)-1),Len(Left(WScript.ScriptFullName, InStr(WScript.ScriptFullName, WScript.ScriptName)-1))-6) 
+Set oFile = fso.GetFile(ScriptChemin & "Config.ini")
+
 
 If AppPrevInstance() Then 
 	MsgBox "Le script est deja lancer" & VbCrLF &_
 	CommandLineLike(WScript.ScriptName),VbExclamation,"Script deja lancer"    
 	WScript.Quit   
 Else 
-	Dim Folder,File,fso,MyPlayList,Temp,oExec,ws,Title,WaitingMsg
-	Set fso = CreateObject("Scripting.FileSystemObject")
-	Set ws = CreateObject("WScript.Shell")
+	Dim Folder,File,MyPlayList,Temp,oExec,Title,WaitingMsg
 	Temp = ws.ExpandEnvironmentStrings("%Temp%")
 	Folder = Browse4Folder()
 	MyPlayList = Folder & "\MyPlayList.m3u"
@@ -51,20 +55,17 @@ End Function
 Function Browse4Folder()
 On Error Resume Next
 
-Dim objShell,objFolder,Message,checkregistre,WshShell, user
-Set wshShell = CreateObject( "WScript.Shell" )
-user = wshShell.ExpandEnvironmentStrings( "%USERPROFILE%" )
-checkregistre = WshShell.RegRead ("HKCU\Software\GoogleHome\MUSIC")
-If err.Number<>0 or IsNull(checkregistre) Then
+Dim objShell,objFolder,Message
+If WriteReadIni(oFile,"CONFIG","MUSIC",Null) = False then 
 	Message = "Veuillez sélectionner un dossier afin d'y rechercher des chansons dans ses sous-dossiers et ses sous-dossiers."
 	Set objShell = CreateObject("Shell.Application")
-	Set objFolder = objShell.BrowseForFolder(0,Message,1,user)
+	Set objFolder = objShell.BrowseForFolder(0,Message,1)
 	If objFolder Is Nothing Then
 		Wscript.Quit
 	End If
 	Browse4Folder = objFolder.self.path
 Else
-    Browse4Folder = checkregistre
+    Browse4Folder = WriteReadIni(oFile,"CONFIG","MUSIC",Null)
 End if
 end Function
 '*********************************************************************************************
@@ -86,9 +87,8 @@ Function Scan4Songs(Folder)
 End Function
 '*********************************************************************************************
 Sub MakePlayListFile(MyPlayList,strContents)
-	Dim fso,ts
+	Dim ts
 	Const ForAppending = 8
-	Set fso = CreateObject("Scripting.FileSystemObject")
 	Set ts = fso.OpenTextFile(MyPlayList,ForAppending,True)
 	ts.WriteLine "#UTF8: "& strContents
 	ts.WriteLine strContents
@@ -154,3 +154,50 @@ Sub Pause(Secs)
 	Wscript.Sleep(Secs * 1000)    
 End Sub   
 '*********************************************************************************************
+
+
+
+
+
+
+ Function WriteReadIni(oFile,section,key,value)
+ On Error Resume Next
+' *******************************************************************************************
+' omen999 - mars 2018 v 1.1 - http://omen999.developpez.com/
+' ********************************************************************************************
+Dim oText,iniText,sectText,newSectText,keyText
+  Set reg = New RegExp
+  Set regSub = New RegExp
+  reg.MultiLine=True
+  reg.IgnoreCase = True
+  regSub.IgnoreCase = True
+  Set oText = oFile.OpenAsTextStream(1,0)
+  iniText = oText.ReadAll
+  oText.Close
+  reg.Pattern = "^\[" & section & "\]((.|\n[^\[])+)":regSub.Pattern = "\b" & key & " *= *([^;\f\n\r\t\v]*)"
+  On Error Resume Next
+  If IsNull(value) Then
+    WriteReadIni = regSub.Execute(reg.Execute(iniText).Item(0).SubMatches(0)).Item(0).SubMatches(0)
+    If Err.Number = 5 then WriteReadIni = False
+  Else
+    sectText = reg.Execute(iniText).Item(0).SubMatches(0)
+    If Err.Number = 5 Then
+      iniText = iniText & vbCrLf & "[" & section & "]" & vbCrLf & key & "=" & value
+    Else
+      newSectText = regSub.Replace(sectText,key & "=" & value)
+      If newSectText = sectText Then
+        If regSub.Test(sectText) Then
+          WriteReadIni = False
+          Exit Function
+        End If
+        If Right(sectText,1) = vbCr Then keyText = key & "=" & value Else keyText = vbCrLf & key & "=" & value
+        newSectText = sectText & keyText
+      End If
+      iniText = reg.Replace(iniText,"[" & section & "]" & newSectText)
+    End If
+    Set oText = oFile.OpenAsTextStream(2,0)
+    oText.Write iniText
+    oText.Close
+    WriteReadIni = True
+  End If
+End Function
