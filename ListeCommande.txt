@@ -1,6 +1,10 @@
+
+Ok google : 
 Sur le pc ...
 ou
 Sur l'ordinateur ...
+
+exemple  : Ok google sur le pc  affiche le bureau
 
 
 Liste des commandes : 
@@ -32,22 +36,22 @@ mute le son"," muet"," le son a 0"," coupe le son"," coupe le volume"," coupe l'
 * Commande *
 
 fait pause : 
-"met pause"," fais une pause"," met en pause"," mais en pause"," fait pause"," fait stop"," stop"," pause"," relance"," enlève la pause"," met une pause"," lance"," lecture"," lance lecture"" lance la lecture"
+"met pause"," fais une pause"," met en pause"," mais en pause"," fait pause"," fait stop"," stop"," pause"," relance"," enlève la pause"," met une pause"," lecture"," lance lecture"" lance la lecture"
 
 Lance la lecture
-
+" lecture"," lance lecture"" lance la lecture"
 
 Ecrire du text : 
 "ecrit X" x comme mot ou phrase
 
 
 *Exercute*
-Mot clé : lance X , ouvre X, démarre X, exécute X, affiche X, X, ouvrir X,  démarrer X, lancer X, exécuter X
+Mot clé : lance X, lancer x, ouvre X, démarre X, exécute X, affiche X, X, ouvrir X,  démarrer X, lancer X, exécuter X
 
 X = le logiciel a lancé (n'importe quel logiciel devrais etre possible de lancer)
-(les application windows 10 compatible au script : projecteur, netflix, cortana) 
+(les application windows 10 compatible au script : projecteur, netflix, cortana,spotify, 'se connecter') 
 (les site compatible au script: google, youtube,facebook, instant-hack,github)
-
+Les application pré enregistrer : bureau (affiche le bureau) , calculatrice, clavier visuel, loupe, 
 
 *Système*
 
