@@ -4,7 +4,7 @@
 ' Projet  : https://github.com/ABOATDev/Control-Google-Home
 
 Dim MAJ, WS,fso,CheckMAJUser,f,IE,objHTTP,ScriptChemin
-MAJ = "1.0.9" 'Version Actuelle du script
+MAJ = "1.1.0" 'Version Actuelle du script
 
 On Error Resume Next
 
@@ -61,7 +61,7 @@ For I = 0 to objArgs.Count -1
 Select Case objArgs(I)
 Case "écris", "écrit","marque"
 ecrit = true
-Case "lance", "ouvre","affiche","démarre", "exécute","ouvrir","démarrer","exécuter","lancer"
+Case "lance", "ouvre","affiche","démarre", "exécute","ouvrir","démarrer","exécuter","lancer","l ' ours"
 lance = true
 Case "message","messagebox"
 message = true
@@ -113,25 +113,26 @@ End if
 a = right (a,len(a)-1)
 Select Case a
 
-Case "test", "teste", "check", "ok","vérifie","vérification"
+Case "test", "teste", "check", "ok","vérifie","vérification","tester","testé"
 Call Check ()
 Call MAJCheck (CheckMAJUser, MAJ)
-Case "augmente le son","augmente le volume","monte le son","news le son","mieux que le son" : WS.SendKeys "{" & chr(175) & " 10}"
+Case "augmente le son","augmente le volume","monte le son","news le son","mais du son","mieux que le son" : WS.SendKeys "{" & chr(175) & " 10}"
 Case "monte le son au max","monte le son au maximum","monte le volume au maximum","volume max","volume maximum","son au max","augmente le son au maximum","mais le son au max","mais le son au maximum","mais le volume au max","mais le volume au maximum","mets le son à fond","le son à fond","son à fond" : WS.SendKeys "{" & chr(175) & " 50}"
 Case "baisse le son","descend le son","descend le volume","baisse le volume" : WS.SendKeys "{" & chr(174) & " 10}"
 Case "descend le son au max","baisse le son au max","baisse le volume au max","baisse le son au maximum","volume minimum","volume au minimum","baisse le volume au maximum" : WS.SendKeys "{" & chr(174) & " 50}"
 Case "mute","mute le volume","mute le son","muet","le son a 0","coupe le son","coupe le volume","coupe l'audio","remets le volume","remets le son","remets le son","arrête le son","stop le son","stop le v","désactive le son","désactive le volume","allume le son","éteint le son","allume le volume","éteint le volume" : WS.SendKeys chr(173)
-Case "pause","fait pause","met pause","mais pause","fais une pause","met en pause","mais en pause","fait pause","fait stop","stop","pause","relance","enlève la pause","met une pause","lance","lecture","mais play","lance lecture","lance la lecture","mais en pause","lecture","mais plaît","se pose" : WS.SendKeys " "
-Case "éteint le","arrête le","éteint le pc","éteint l'ordinateur","arrête le pc","éteint l ' ordinateur","arrête le système","éteint le système"," arrête","arrête l ' ordinateur","arrêter le système","éteint","éteint le","arrêt du système" : CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f /t 01",0
+Case "pause","fait pause","met pause","mais pause","fais une pause","met en pause","mais en pause","fait pause","fait stop","stop","pause","mes pauses","relance","même pause","enlève la pause","met une pause","mets pause","lance","lecture","mais play","play","lance lecture","lance la lecture","mais en pause","lecture","mais plaît","se pose" : WS.SendKeys " "
+Case "éteint le","arrête le","éteint le pc","éteint l'ordinateur","arrête le pc","éteint l ' ordinateur","arrête le système","éteint le système"," arrête","arrête l ' ordinateur","arrêter le système","éteint","éteint le","le shut down","shutdown","shadow","éteindre le système","arrêt du système" : CreateObject("Wscript.Shell").Run "CMD /C " & " shutdown /s /f /t 01",0
 Case "verrouille le","verrouiller le","verrouille la session","verrouiller la session","verrouille le pc","le verrouiller","met en veille","mettre en veille","met le en veille","veille","verrouillage","verrouille","metre en veille","verrouiller la session","verrouille la session","mais en veille","verrouiller","verrouillé","verrouiller le pc" : WS.Run "rundll32.exe user32.dll,LockWorkStation"
 Case "mot de passe wifi","mot de passe du wifi","code wifi","wifi","code de la wifi","donne mot de passe wifi","code du wifi","donne le mot de passe wifi","donne le mot de passe du wifi","retrouve le mot de passe wifi","retrouve le mot de passe du wifi","quel est le mot de passe wifi","quel est le mot de passe du wifi","donne le mot de passe" : Call TelechargerTools ("WifiPasswordsRecovery.bat","https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/Tools/WifiPasswordsRecovery.bat")
 Case "ejecte le cd","eject cd","eject le dvd","eject cd","eject dvd","ejecter dvd","ejecter cd"," ejecter le dvd","eject dvd" : LecteurDVD ()
+Case "bonjour","salut","quoi de neuf","hey","coucou","ca va"
 Case "ferme le logiciel","ferme le logiciel actif","arrête l ' application","arrête le logiciel","arrête l ' application","ferme l ' application","ferme le programme","arrête le programme","quitte le programme" : WS.SendKeys ("%{F4}")
 Case "eject usb", "eject clé usb", "eject la clé usb" , "retire usb" , "retire la clé usb","retire clé usb" : Call TelechargerTools ("Eject_USB.vbs","https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/Tools/Eject_USB.vbs")
 Case "écran de veille", "l ' écran de veille", "veille","ecran de veille","écran veille", "met l ' écran de veille","mais l ' écran de veille" : WS.Run "C:\Windows\System32\Ribbons.scr"
 case "liste des commandes", "liste commande", "donne la liste des commandes" , "détail des commandes", "les commandes disponible", "liste des commandes disponible" : Call TelechargerTools ("ListeCommande.txt","https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/ListeCommande.txt")
 Case "spotify","la lecture spotify","lecture spotify","musique spotify","la musique spotify","spotify musique","spotify lecture" : Call TelechargerTools ("LectureSpotify.vbs","https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/Tools/LectureSpotify.vbs")
-Case "musique","met de la musique","lance de la musique","mais de la musique","lance musique","audio","met la musique","met la playlist","lance la playlist","met la playlist" : Call TelechargerTools ("LancerDossierMusique.vbs","https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/Tools/LancerDossierMusique.vbs")
+Case "musique","met de la musique","mets de la musique","lance de la musique","mais de la musique","lance musique","audio","met la musique","met la playlist","lance la playlist","met la playlist" : Call TelechargerTools ("LancerDossierMusique.vbs","https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/Tools/LancerDossierMusique.vbs")
 Case "vidéo","film","met vidéo","film","mais vidéo","lance vidéo","lance film","met les vidéos","met la vidéo","lance la vidéo","met le film","met les films","lance la vidéo","met la vidéo" : Call TelechargerTools ("LancerDossierVideo.vbs","https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/Tools/LancerDossierVideo.vbs")
 
 Case "maj","mise à jour","vérifier mise à jour","vérifie mise à jour","mise à jour script","vérifier","mage"
