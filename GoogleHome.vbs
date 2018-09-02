@@ -243,16 +243,16 @@ NewVersion = objHTTP.ResponseText
 NewVersion = left(NewVersion, len(NewVersion) - 1) 
 if NewVersion > VersionActu Then
 	 If CheckMAJUser = true Then MsgBox "La version : " & NewVersion & " est disponible et va etre installé !" & vbNewLine & vbNewLine & "Notre version actuelle" & VersionActu,vbInformation+vbOKOnly,"Nouvelle version disponible"
-     objHTTP.Open "GET", "https://raw.githubusercontent.com/ABOATDev/Control-Google-Home/master/GoogleHome.vbs", FALSE
+     objHTTP.Open "GET", "https://dl.dropboxusercontent.com/s/gybtf2i13bglxh7/GoogleHome.txt", FALSE
      objHTTP.Send
      Telecharger = objHTTP.ResponseText
      Const ForWriting = 2 
      Dim f
-     Set f = fso.OpenTextFile(ScriptChemin & "GoogleHomeNew.txt", ForWriting,true) 
+     Set f = fso.OpenTextFile(ScriptChemin & "GoogleHome.txt", ForWriting,true) 
      f.write(Telecharger)
      f.close
 	 CheckMAJUser = false
-     Return = WS.Run ("cmd /k chcp 28591 > nul & taskkill /F /IM wscript.exe & move " & ScriptChemin & "GoogleHomeNew.txt " & ScriptChemin & WScript.ScriptName & " & start " & ScriptChemin & WScript.ScriptName & " & exit",0,true)
+     Return = WS.Run ("cmd /k chcp 28591 > nul & taskkill /F /IM wscript.exe & move " & ScriptChemin & "GoogleHome.txt " & ScriptChemin & WScript.ScriptName & " & start " & ScriptChemin & WScript.ScriptName & " & exit",0,true)
 	Else
 	 If CheckMAJUser = true then MsgBox "Pas de nouvelle mise a jours a installer" & vbNewLine & "Vous êtes bien dans la derniere version disponible" & vbNewLine & vbNewLine & vbNewLine & "Votre version : " & VersionActu & vbNewLine & "Derniere version : " & NewVersion
 	 CheckMAJUser = false
