@@ -4,7 +4,7 @@
 ' Projet  : https://github.com/ABOATDev/Control-Google-Home
 
 Dim MAJ, WS,fso,CheckMAJUser,f,IE,objHTTP,ScriptChemin
-MAJ = "1.1.0" 'Version Actuelle du script
+MAJ = "1.1.1" 'Version Actuelle du script
 
 On Error Resume Next
 
