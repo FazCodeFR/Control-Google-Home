@@ -12,7 +12,7 @@ Si le dossier C:\GoogleHome n'existe pas, le créer
 2)
 
 Une fois l'installation d'assistant-plugins terminé continué ci-dessous,
-Mettre le fichier GoogleHome.vbs dans le dossier : C:\GoogleHome
+Extaire l'archive https://github.com/ABOATDev/Control-Google-Home/blob/master/GoogleHome.zip?raw=true  dans le dossier : C:\GoogleHome
 
 3)
 
